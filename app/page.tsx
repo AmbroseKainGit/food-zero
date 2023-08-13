@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="Home">
-      <div>ALGO</div>
+      <div className="container">ALGO</div>
     </main>
   );
 }

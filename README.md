@@ -47,7 +47,8 @@ Before you begin, make sure you have Node.js and npm (Node Package Manager) inst
 - **Next.js 13:** A React framework for building server-rendered applications.
 - **Firebase:** A cloud-based platform for building web and mobile applications.
 - **React:** A JavaScript library for building user interfaces.
-- **CSS Modules:** Local scope CSS styling for components.
+- **SASS:** A CSS extension language that enables more advanced styling capabilities.
+- **Redux:** A state management library for managing application state.
 - **HTML5:** The standard markup language for creating web pages.
 
 ## Contributing
