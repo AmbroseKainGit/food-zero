@@ -1,5 +1,5 @@
 /* Core */
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 /* Instruments */
 import { reducer } from './reducers/rootReducer'
 import { middleware } from './middleware'
