@@ -2,10 +2,25 @@
 @import 'mediaQuery.scss';
 @import 'fonts.scss';
 
+
+//Mixins
+
+@mixin main_container($main_background: white) {
+    width: 100%;
+    padding: 0 $XL;
+    background-color: $main_background;
+}
+
+// @mixin inner_container($width:100%, $max-width:$max-width, $background-color: transparent)
+
+// modules
+@import '_home.scss';
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: "Rufina";
 }
 
 html {
@@ -17,7 +32,3 @@ html {
     /* scroll-behavior: smooth; */
 }
 
-.container {
-    width: 100%;
-    padding: $XL;
-} 

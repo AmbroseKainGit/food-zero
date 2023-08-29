@@ -1,0 +1,8 @@
+.header-container{
+  width: $max-width;
+  height: 2762px;
+}
+
+.main-header-container{
+  @include main_container($main_background:$main);
+}
