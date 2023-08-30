@@ -11,7 +11,16 @@
     background-color: $main_background;
 }
 
-// @mixin inner_container($width:100%, $max-width:$max-width, $background-color: transparent)
+@mixin inner_container($width:100%, $max-width:$max-width, $display:flex, $flex-directiom: column, $gap: 5rem, $background-color: transparent, $PXY: 0 0 ,$color: #fff ){
+    width: $width;
+    max-width: $max-width;
+    background-color: $background-color;
+    padding: $PXY;
+    color: $color;
+    display: $display;
+    flex-direction: $flex-directiom;
+    gap: $gap
+}
 
 // modules
 @import '_home.scss';
