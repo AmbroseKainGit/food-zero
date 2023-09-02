@@ -1,0 +1,43 @@
+.menu-header {
+  position: absolute;
+  display: flex;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: $LG $XL;
+  align-items: center;
+  justify-content: space-between;
+  color: $common-white;
+  z-index: 9999;
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $LG;
+    &__button {
+        cursor: pointer;
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $LG;
+    &__phone {
+      font-size: 2rem;
+      font-weight: 400;
+      font-family: var(--lato);
+    }
+    &__button {
+      button {
+        all: unset;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 48px;
+        border: 2px solid $common-white;
+        padding: 2rem 3rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
