@@ -1,4 +1,3 @@
-"use client";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/lib/redux";
 import { useRouter } from "next/navigation";

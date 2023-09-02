@@ -1,10 +1,12 @@
 "use client";
 
+import Cover from "@/components/General/Cover";
 import Image from "next/image";
 
 export default function Landing() {
   return (
     <div className="main-header-container">
+      <Cover />
       <header className="header-container">
         <div className="hero-header-title">
           <h2>Healthy Eating is important part of lifestyle</h2>

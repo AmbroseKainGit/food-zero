@@ -1,43 +1,20 @@
 @import 'variables.scss';
 @import 'mediaQuery.scss';
-@import 'fonts.scss';
-
-
-//Mixins
-
-@mixin main_container($main_background: white) {
-    width: 100%;
-    padding: 0 $XL;
-    background-color: $main_background;
-}
-
-@mixin inner_container($width:100%, $max-width:$max-width, $display:flex, $flex-directiom: column, $gap: 5rem, $background-color: transparent, $PXY: 0 0 ,$color: #fff ){
-    width: $width;
-    max-width: $max-width;
-    background-color: $background-color;
-    padding: $PXY;
-    color: $color;
-    display: $display;
-    flex-direction: $flex-directiom;
-    gap: $gap
-}
-
+@import 'mixins.scss';
 // modules
 @import '_home.scss';
+@import 'components/cover.scss';
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Rufina";
+    font-family: var(--rufina);
 }
 
 html {
-    /* font-size: 10px; */
     /* 10px/16px = 0.625 */
     font-size: 62.5%;
     overflow-x: hidden;
-    /* Does not worl on Safari */
-    /* scroll-behavior: smooth; */
 }
 
