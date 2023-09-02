@@ -1,6 +1,8 @@
-# School Manager Software Readme
+# Food Zero Restaurant Page
 
-The **School Manager Software** is a web application built using Next.js 13 and Firebase, designed to help educational institutions efficiently manage their classes, professors, students, and schedules. This document provides an overview of the software, installation instructions, and key features.
+![Food Zero Restaurant](/public/static/FoodZero.webp)
+
+The **Food Zero Restaurant Page** is a web application built using Next.js 13 and Firebase, designed for a restaurant to showcase their menu, provide an about page, and offer an admin interface to manage products, menus, and colors. This document provides an overview of the project, installation instructions, and key features.
 
 ## Table of Contents
 
@@ -13,12 +15,11 @@ The **School Manager Software** is a web application built using Next.js 13 and 
 
 ## Features
 
-- **Class Creation:** Easily create and manage classes, assign class names, and set class descriptions.
-- **Professor Management:** Add, edit, and remove professors, including their contact information and expertise areas.
-- **Student Administration:** Maintain a list of students in each class, complete with personal details and enrollment status.
-- **Scheduling:** Create and modify class schedules, allocate professors to classes, and manage timetable clashes.
-- **User Authentication:** Secure user authentication using Firebase authentication services, ensuring data privacy.
-- **Responsive Design:** A user-friendly interface that adapts to various devices, including desktops, tablets, and smartphones.
+- **Menu Showcase:** Display the restaurant's menu to customers, allowing them to view available dishes.
+- **About Page:** Provide an about page to showcase the restaurant's history, mission, and values.
+- **Admin Interface:** Create, edit, and manage products and menus using an intuitive admin dashboard.
+- **Customization:** Set colors and styles to match the restaurant's branding and theme.
+- **Firebase Integration:** Utilize Firebase for real-time database management and user authentication.
 
 ## Installation
 
@@ -27,20 +28,19 @@ Before you begin, make sure you have Node.js and npm (Node Package Manager) inst
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/AmbroseKainGit/ssm.git
-   cd ssm
+   git clone https://github.com/The-Ambrose/food-zero.git
+   cd food-zero
 2. Install dependencies:
    ```
    npm install
-
 ## Usage
 
-- **Home Page:** Upon accessing the application, you'll see an intuitive dashboard where you can navigate to different sections.
-- **Classes:** Create new classes, edit class details, and manage students enrolled in each class.
-- **Professors:** Add, edit, and remove professors. Assign professors to specific classes.
-- **Students:** Maintain a list of students. Keep track of their enrollment status and class assignments.
-- **Schedules:** Create and manage class schedules. Assign professors and students to specific time slots.
-- **Authentication:** Users need to sign up or log in to access the management features.
+1. **Home Page:** Customers can explore the restaurant's menu and view available dishes.
+2. **About Page:** Learn about the restaurant's history, mission, and values.
+3. **Admin Login:** Access the admin login page to authenticate as an administrator.
+4. **Admin Dashboard:** Once authenticated, administrators can manage products, menus, and colors through the admin dashboard.
+
+
 
 ## Technologies Used
 
