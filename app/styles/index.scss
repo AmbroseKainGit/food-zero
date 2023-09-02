@@ -2,9 +2,9 @@
 @import "mediaQuery.scss";
 @import "mixins.scss";
 // modules
-@import '_home.scss';
-@import 'components/cover.scss';
-@import 'components/menuComponent.scss';
+@import "_home.scss";
+@import "components/cover.scss";
+@import "components/menuComponent.scss";
 
 * {
     box-sizing: border-box;
@@ -20,12 +20,13 @@ html {
 }
 
 .main-container-template {
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out; 
+    transition: all .5s ease-in-out;
     opacity: 1;
     visibility: visible;
 
     &.hide {
         opacity: 0;
-        visibility: hidden; 
+        visibility: hidden;
+        overflow: hidden;
     }
 }
