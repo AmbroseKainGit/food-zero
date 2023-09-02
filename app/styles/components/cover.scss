@@ -1,0 +1,5 @@
+.main-cover-container {
+    @include main_container($main_background: $main);
+    position: absolute;
+    z-index: 2;
+}
