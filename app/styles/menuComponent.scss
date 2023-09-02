@@ -8,14 +8,14 @@
   align-items: center;
   justify-content: space-between;
   color: $common-white;
-  z-index: 9999;
+  z-index: 1;
   &__left {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: $LG;
     &__button {
-        cursor: pointer;
+      cursor: pointer;
     }
   }
   &__right {

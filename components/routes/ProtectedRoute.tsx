@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
 import { selectUser } from "@/lib/redux";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useAppSelector } from "@/hooks/redux";
 
 const WithAuth = <P extends object>(
   WrappedComponent: React.ComponentType<P>
 ) => {
   const AuthComponent: React.FC<P> = (props) => {
-    const user = useSelector(selectUser);
+    const user = useAppSelector(selectUser);
     const router = useRouter();
     useEffect(() => {
       if (!user) {

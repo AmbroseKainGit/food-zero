@@ -1,10 +1,8 @@
 import { Providers } from "@/lib/providers";
 import "./styles/index.scss";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { lato, rufina } from "./fonts";
-
-const inter = Inter({ subsets: ["latin"] });
+import { MenuComponent } from "../components/General/MenuComponent";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +17,10 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en" className={`${lato.variable} ${rufina.variable}`}>
-        <body className={inter.className}>{children}</body>
+        <body>
+          <MenuComponent />
+          {children}
+        </body>
       </html>
     </Providers>
   );
