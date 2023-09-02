@@ -2,10 +2,12 @@
 
 import Cover from "@/components/General/Cover";
 import Image from "next/image";
+import { MenuComponent } from "@/components/General/MenuComponent";
 
 export default function Landing() {
   return (
     <div className="main-header-container">
+      <MenuComponent />
       <Cover />
       <header className="header-container">
         <div className="hero-header-title">
