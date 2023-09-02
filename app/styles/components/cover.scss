@@ -2,7 +2,7 @@
     @include main_container($main_background: $main);
     visibility: hidden; 
     opacity: 0; // Start with the component being transparent
-    transition: all .5s ease-in-out; // Define the transition for the opacity property
+    transition: all 1s ease-in-out; // Define the transition for the opacity property
     &.visible {
         visibility: visible;
         opacity: 1; // When the component is visible, it should be fully opaque
