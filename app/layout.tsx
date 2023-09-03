@@ -2,7 +2,8 @@ import { Providers } from "@/lib/providers";
 import "./styles/index.scss";
 import type { Metadata } from "next";
 import { lato, rufina } from "./fonts";
-import { MenuComponent } from "../components/General/MenuComponent";
+import { MenuComponent } from "@/components/General/MenuComponent";
+import { Footer } from "@/components/General/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <body>
           <MenuComponent />
           {children}
+          <Footer />
         </body>
       </html>
     </Providers>
