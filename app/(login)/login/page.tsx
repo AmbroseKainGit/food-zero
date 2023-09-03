@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { signIn } from "@/lib/firebase/auth/loginActions";
 import { useRouter } from "next/navigation";
 import { selectUser } from "@/lib/redux";
+import { useAppSelector } from "@/hooks/redux";
 function Page() {
-  const user = useSelector(selectUser);
+  const user = useAppSelector(selectUser);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const router = useRouter();
