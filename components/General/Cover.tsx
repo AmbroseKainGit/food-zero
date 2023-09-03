@@ -1,6 +1,7 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { changeVisibilityMenu, selectCover } from "@/lib/redux";
+import Link from "next/link";
 import {
   AiOutlineFacebook,
   AiOutlineInstagram,
@@ -20,7 +21,7 @@ const Cover = () => {
       </span>
       <div className="cover__nav">
         <h1 className="cover__nav-item">Home</h1>
-        <h1 className="cover__nav-item">Menu</h1>
+        <Link onClick={() => dispatch(changeVisibilityMenu())} href="/menu" className="cover__nav-item">Menu</Link>
         <h1 className="cover__nav-item">Blogs</h1>
         <h1 className="cover__nav-item">About</h1>
         <h1 className="cover__nav-item">Contact</h1>

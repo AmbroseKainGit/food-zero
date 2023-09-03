@@ -2,10 +2,12 @@ import { Providers } from "@/lib/providers";
 import "./styles/index.scss";
 import type { Metadata } from "next";
 import { lato, rufina } from "./fonts";
-import { MenuComponent } from "@/components/General/MenuComponent";
+import { NavComponent } from "@/components/General/NavComponent";
 import { Footer } from "@/components/General/Footer";
 import { HeaderComponent } from "@/components/General/HeaderComponent";
-HeaderComponent
+import Cover from "@/components/General/Cover";
+
+
 
 export const metadata: Metadata = {
   title: "Food Zero",
@@ -21,17 +23,8 @@ export default function RootLayout({
     <Providers>
       <html lang="en" className={`${lato.variable} ${rufina.variable}`}>
         <body>
-          <MenuComponent />
-          <HeaderComponent
-            title={'View Our New Menu'}
-            titleFontSize={14.8}
-            description={'The fresh ingredients for you every day'}
-            descriptionFontSize={3.2}
-            ubication={'left'}
-            showOpenTime={true}
-            textAling={'left'}
-            textContainerWidth={55}
-          />
+          <Cover />
+          <NavComponent />        
           {children}
           <Footer />
         </body>

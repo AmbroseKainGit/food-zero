@@ -16,8 +16,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     };
   }, [showCover]);
   return (
-    <>
-      <Cover />
+    <>     
       <div className={`main-container-template ${showCover ? 'hide' : ''}`}>
         {children}
       </div>
