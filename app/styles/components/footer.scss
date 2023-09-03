@@ -56,7 +56,7 @@
           font-size: 2.4rem;
           font-weight: 400;
           font-family: var(--lato);
-          background-color: $main;      
+          background-color: $main;
           margin-right: 2rem;
           &::placeholder {
             color: $common-white;
@@ -86,15 +86,16 @@
     padding: $LG $XL;
     display: flex;
     align-items: center;
-    justify-content: space-between  ;
+    justify-content: space-between;
     flex-direction: row;
     &__left {
-        font-family: var(--lato);
-        font-size: 2.4rem;
+      font-family: var(--lato);
+      font-size: 2.4rem;
     }
     &__right {
-        display: flex;
-        gap: 2rem;
+      display: flex;
+      gap: 2rem;
+      font-size: 2.8rem;
     }
   }
 }
