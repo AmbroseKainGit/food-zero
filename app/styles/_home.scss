@@ -6,16 +6,26 @@
   padding-top: 30.2rem;
 
   img:nth-child(2) {
-      position: absolute;
-      top: 43.4rem; // Adjust this value as needed
-      right: 0;
-    }
+    position: absolute;
+    top: 43.4rem; // Adjust this value as needed
+    right: 0;
+  }
 
   img:nth-child(3) {
-      position: absolute;
-      top: 116.5rem; // Adjust this value as needed
-      right: 28.5rem;
-    }
+    position: absolute;
+    top: 116.5rem; // Adjust this value as needed
+    right: 28.5rem;
+  }
+  img:nth-child(4) {
+    position: absolute;
+    top: 116.5rem; // Adjust this value as needed
+    right: 58.9rem;
+  }
+  img:nth-child(5) {
+    position: absolute;
+    top: 116.5rem; // Adjust this value as needed
+    right: 88.8rem;
+  }
 }
 
 .main-header-container {
@@ -32,9 +42,63 @@
   }
 
   p {
+    font-family: "Lato";
     font-size: 2.4rem;
     font-weight: 400;
     line-height: 3.36rem; /* 33.6px */
     letter-spacing: 0.48px;
+  }
+}
+
+.hero-header-scroll {
+  position: relative;
+  /* Abs positioning makes it not take up vert space */
+  P {
+    position: absolute;
+    top: -5.4rem;
+    left: 0;
+    padding-bottom: 3rem;
+    /* Border is the new background */
+    font-size: 4.8rem;
+    font-weight: 700;
+    line-height: 6.4rem;
+
+    /* Rotate from top left corner (not default) */
+    transform-origin: left;
+    transform: rotate(90deg);
+  }
+}
+
+.header-inner-section {
+  @include inner_container($flex-directiom: row, $gap: 0);
+  margin-top: 76.1rem;
+  .first-inner-section,
+  .second-inner-section {
+    @include inner_container($width: 50%);
+    h3 {
+      font-size: 6.8rem;
+      font-weight: 700;
+      line-height: 8.4rem;
+    }
+
+    p {
+      font-family: "Lato";
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 3.36rem; /* 33.6px */
+      letter-spacing: 0.48px;
+    }
+  }
+
+  .second-inner-section {
+    align-items: end;
+    img {
+      position: static;
+    }
+
+    p{
+      display: block;
+      width: 50.8rem;
+    }
   }
 }
