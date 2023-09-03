@@ -1,0 +1,52 @@
+.opentime__container {
+
+  display: flex;
+  flex-direction: column;
+  * {
+    font-family: var(--lato);
+  }
+  &__up {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 4.5rem;
+    border-bottom: 2px dotted $common-white;
+    .title {
+      font-family: var(--rufina);
+    }
+  }
+  &__down {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3.8rem;
+    overflow-x: auto;
+    gap: 17%;
+    .schedule__item {
+      min-width: 22%;
+      display: flex;
+      flex-direction: column;
+      .name {
+        text-transform: capitalize;
+      }
+    }
+  }
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #4e4950 #736464;
+  }
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    height: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: rgba(90, 90, 90, 0.274);       
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgba(148, 133, 133, 0.582);       
+  }
+}
