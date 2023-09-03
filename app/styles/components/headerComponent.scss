@@ -1,0 +1,28 @@
+.header__component {
+  position: relative;
+  height: 108rem;
+  width: 100%;
+  padding: 0 $XL;
+  display: flex;
+  align-items: center;
+  color: $common-white;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    .title {
+      font-weight: 700;
+      line-height: 12rem;
+    }
+    .description {
+      font-weight: 700;
+      line-height: 4.8rem;
+    }
+  }
+  .open__time {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 $XL $XL 0;
+  }
+}
