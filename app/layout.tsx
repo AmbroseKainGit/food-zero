@@ -3,6 +3,8 @@ import "./styles/index.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { lato, rufina } from "./fonts";
+import { Footer } from "@/components/General/Footer";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +21,10 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en" className={`${lato.variable} ${rufina.variable}`}>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          {children}
+          <Footer />
+        </body>
       </html>
     </Providers>
   );
