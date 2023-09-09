@@ -1,9 +1,9 @@
 "use client";
 import { CallToAction } from "@/components/Home/CallToAction";
+import { InformationSection} from "@/components/Home/InformationSection";
 import { FirstAd } from "@/components/Home/FirstAd";
 import { Header } from "@/components/Home/Header";
-import { useAppSelector } from "@/hooks/redux";
-import { selectCover } from "@/lib/redux";
+import { BlogSection } from "@/components/Home/BlogSection";
 export default function Landing() {
   return (
     <>
@@ -16,6 +16,13 @@ export default function Landing() {
       <div className="advertising-first-container">
         <FirstAd />
       </div>
+      <div className="information-container-main">
+        <InformationSection />
+      </div>
+      <div className="blog-container-main">
+        <BlogSection />
+      </div>
+
     </>
   );
 }
