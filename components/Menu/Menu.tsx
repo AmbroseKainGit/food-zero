@@ -1,8 +1,8 @@
 import { MenuItem } from "@/typings"
 import { url } from "inspector"
 import Image from "next/image"
-import { GrapeSvg } from "./GrapeSvg"
-import { AvocadoSvg } from "./AvocadoSvg"
+import { GrapeSvg } from "../Svg/GrapeSvg"
+import { AvocadoSvg } from "../Svg/AvocadoSvg"
 interface props {
     data: MenuItem
     loopIndex: number
