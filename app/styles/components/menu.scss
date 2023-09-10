@@ -5,7 +5,18 @@
   background-color: $common-white;
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 8rem;
+  &__svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &__svg__center {
+    position: absolute;
+    right: 38%;
+    top: 0;
+  }
   &__top {
     display: flex;
     flex-direction: column;
