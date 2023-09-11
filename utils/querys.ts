@@ -1,11 +1,29 @@
 import { gql } from "@apollo/client";
 export const queryCategories = gql`
-  query Query {
-    categories {
-      id
+query Categories {
+  categories {
+    disabled
+    description
+    image
+  }
+}
+`;
+export const queryMenu = gql`
+query Categories {
+  categories {
+    id
+    name
+    description
+    image
+    products {
       name
-      image
+      description
       disabled
+      id
+      image
+      price
+      priority
     }
   }
+}
 `;

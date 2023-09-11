@@ -1,5 +1,4 @@
-export interface MenuItem {
-  id: string
+export interface Category {
   name: string
   description: string
   disabled: boolean
@@ -7,7 +6,7 @@ export interface MenuItem {
   products: Product[]
 }
 
-interface Product {
+export interface Product {
   name: string
   description: string
   disabled: boolean
@@ -15,4 +14,8 @@ interface Product {
   image: string
   price: number
   priority: number
+}
+
+export interface CategoryQuery {
+  categories: Category[]
 }

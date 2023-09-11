@@ -11,7 +11,7 @@ import { Reservation } from "@/components/General/Reservation";
 import { CallToMenu } from "@/components/Home/CallToMenu";
 export default function Landing() {
   const { loading, error, data } = useQuery(queryCategories);
-  console.log(data.categories);
+  console.log(data);
 
   return (
     <>
