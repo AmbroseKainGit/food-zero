@@ -126,7 +126,7 @@ export default function Menu() {
         description={'The fresh ingredients for you every day'}
         descriptionFontSize={3.2}
         ubication={'left'}
-        showOpenTime={true}
+        showOpenTime={false}
         textAling={'left'}
         textContainerWidth={55}
       />

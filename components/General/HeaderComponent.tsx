@@ -6,7 +6,7 @@ interface props {
     descriptionFontSize?: number
     ubication?: 'left' | 'right' | 'center'
     textAling?: 'left' | 'right' | 'center'
-    showOpenTime: Boolean
+    showOpenTime?: Boolean
     background?: String
     textContainerWidth?: number,
 }
@@ -21,7 +21,7 @@ export const
         ubication = 'left',
         textAling = 'left',
         background = '/static/defaultBackground.webp',
-        showOpenTime
+        showOpenTime = false
     }: props) => {
         if (textContainerWidth > 100) {
             textContainerWidth = 100
