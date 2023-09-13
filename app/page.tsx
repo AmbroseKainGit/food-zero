@@ -1,9 +1,10 @@
 "use client";
 import { CallToAction } from "@/components/Home/CallToAction";
-import { InformationSection} from "@/components/Home/InformationSection";
+import { InformationSection } from "@/components/Home/InformationSection";
 import { FirstAd } from "@/components/Home/FirstAd";
 import { Header } from "@/components/Home/Header";
 import { BlogSection } from "@/components/Home/BlogSection";
+import { Reservation } from "@/components/General/Reservation";
 export default function Landing() {
   return (
     <>
@@ -22,7 +23,9 @@ export default function Landing() {
       <div className="blog-container-main">
         <BlogSection />
       </div>
-
+      <div className="calendar-container-main">
+        <Reservation/>
+      </div>
     </>
   );
 }

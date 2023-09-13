@@ -1,0 +1,96 @@
+.calendar-container-main {
+  @include main_container($main_background: #ebf0e4);
+
+  .reservation-container-home {
+    @include inner_container($color: $common-black, $gap: 0);
+    height: 111.3rem;
+    align-items: center;
+    justify-content: center;
+    .reservation-title {
+      margin-bottom: 1.8rem;
+      h2 {
+        font-size: 10.8rem;
+        font-weight: 700;
+        line-height: 12rem;
+      }
+    }
+
+    .reservation-subtitle {
+      margin-bottom: 13.3rem;
+      p {
+        font-family: var(--lato);
+        font-size: 2.4rem;
+        font-weight: 400;
+        line-height: 3.36rem; /* 33.6px */
+        letter-spacing: 0.48px;
+      }
+    }
+    .reservation-form-container {
+      width: 100%;
+      #reservation-form-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        button {
+          @include section_button_template($PXY: 20px 46px);
+          background-color: $main;
+          font-size: 3.2rem;
+          font-weight: 700;
+          line-height: 4.8rem; /* 150% */
+          color:$common-white;
+        }
+        .form-fields-container {
+          display: flex;
+          width: 100%;
+          gap: 4.8rem;
+          .form-field-reservation {
+            width: 100%;
+            input,
+            button,
+            select {
+              width: 100%;
+              height: 9.6rem;
+            }
+
+            input {
+              font-family: var(--lato);
+              font-size: 2.4rem;
+              font-weight: 400;
+              line-height: 3.36rem; /* 33.6px */
+              letter-spacing: 0.48px;
+              padding: 0 4rem;
+            }
+
+            // input[type="date"] {
+            //   appearance: none;
+            // }
+
+            input[type="date"]::-webkit-calendar-picker-indicator,
+            input[type="time"]::-webkit-calendar-picker-indicator {
+              font-size: 4rem;
+              opacity: 0.4;
+            }
+
+            select {
+              background-color: white;
+              margin-bottom: 13.3rem;
+              -webkit-appearance: none;
+              background-image: linear-gradient(
+                  45deg,
+                  transparent 50%,
+                  gray 50%
+                ),
+                linear-gradient(135deg, gray 50%, transparent 50%),
+                linear-gradient(to right, #ccc, #ccc);
+              background-position: calc(100% - 34px) calc(1em + 24px),
+                calc(100% - 15px) calc(1em + 24px), calc(100% - 5em) 0.5em;
+              background-size: 20px 20px, 20px 20px, 1px 6em;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+      }
+    }
+  }
+}
