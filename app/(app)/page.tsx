@@ -7,6 +7,7 @@ import { BlogSection } from "@/components/Home/BlogSection";
 import { useQuery } from "@apollo/client";
 import { queryCategories } from "@/utils/querys";
 
+import { Reservation } from "@/components/General/Reservation";
 export default function Landing() {
   const { loading, error, data } = useQuery(queryCategories);
   console.log(data.categories);
@@ -27,6 +28,9 @@ export default function Landing() {
       </div>
       <div className="blog-container-main">
         <BlogSection />
+      </div>
+      <div className="calendar-container-main">
+        <Reservation/>
       </div>
     </>
   );
