@@ -5,6 +5,7 @@ import { FirstAd } from "@/components/Home/FirstAd";
 import { Header } from "@/components/Home/Header";
 import { BlogSection } from "@/components/Home/BlogSection";
 import { Reservation } from "@/components/General/Reservation";
+import { CallToMenu } from "@/components/Home/CallToMenu";
 export default function Landing() {
   return (
     <>
@@ -24,7 +25,10 @@ export default function Landing() {
         <BlogSection />
       </div>
       <div className="calendar-container-main">
-        <Reservation/>
+        <Reservation />
+      </div>
+      <div className="calltomenu-container-main">
+        <CallToMenu />
       </div>
     </>
   );

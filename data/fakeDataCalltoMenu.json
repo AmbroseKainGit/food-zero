@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "image": "/static/menu-starters.webp",
+    "title": "Starters"
+  },
+  {
+    "id": 2,
+    "image": "/static/menu-mains.webp",
+    "title": "Mains"
+  },
+  {
+    "id": 3,
+    "image": "/static/menu-soups.webp",
+    "title": "Soups"
+  }
+]
