@@ -324,3 +324,72 @@
     }
   }
 }
+
+///CALL TO MENU
+
+.calltomenu-container-main {
+  @include main_container();
+  .calltomenu-inner-container {
+    @include inner_container($gap: 12.6rem, $color: $common-black);
+    height: 139.4rem;
+    align-items: center;
+    justify-content: center;
+
+    .information-calltomenu-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.8rem;
+
+      h2 {
+        font-size: 10.8rem;
+        font-weight: 700;
+        line-height: 12rem; /* 111.111% */
+      }
+
+      p {
+        color: $grey-main;
+        font-family: var(--lato);
+        font-size: 2.4rem;
+        font-weight: 400;
+        line-height: 3.36rem; /* 33.6px */
+        letter-spacing: 0.48px;
+      }
+    }
+
+    .calltomenu-cards-container {
+      display: flex;
+      gap: 6rem;
+      width: 100%;
+    }
+  }
+}
+
+// ---------------Card call to menu
+
+.calltomenu-card-link{
+  width: 100%;
+  text-decoration: none;
+}
+
+.calltomenu-card-container {
+  width: 100%;
+  height: 71rem;
+  padding-top: 4.8rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  .title-calltomenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      color: $main;
+      font-size: 4.8rem;
+      font-weight: 700;
+      line-height: 6.4rem; /* 133.333% */
+    }
+  }
+}
