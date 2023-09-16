@@ -19,3 +19,15 @@ export interface Product {
 export interface CategoryQuery {
   categories: Category[]
 }
+
+export interface StaffMember {
+  name: string
+  description: string
+  role: string
+  image: string
+}
+
+export interface Staff {
+  staff: StaffMember[]
+}
+
