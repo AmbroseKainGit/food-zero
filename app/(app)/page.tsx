@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import { queryCategories } from "@/utils/querys";
 
 import { Reservation } from "@/components/General/Reservation";
+import { CallToMenu } from "@/components/Home/CallToMenu";
 export default function Landing() {
   const { loading, error, data } = useQuery(queryCategories);
   console.log(data.categories);
@@ -30,7 +31,10 @@ export default function Landing() {
         <BlogSection />
       </div>
       <div className="calendar-container-main">
-        <Reservation/>
+        <Reservation />
+      </div>
+      <div className="calltomenu-container-main">
+        <CallToMenu />
       </div>
     </>
   );
