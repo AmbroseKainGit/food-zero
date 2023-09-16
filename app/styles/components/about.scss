@@ -1,0 +1,32 @@
+.about__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $common-black;
+  background-color: $common-white;
+  padding: 21.8rem $XL 11.7rem $XL;
+  width: 100%;
+  gap: 10.7rem;
+  position: relative;
+  &__svg {
+    position: absolute;
+    left: 33.5%;
+    top: 6%;
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    &__title {
+      font-family: var(--rufina);
+      font-size: 10.8rem;
+      line-height: 12rem;
+    }
+    &__description {
+      font-family: var(--lato);
+      color: $grey-main;
+      font-size: 2.4rem;
+      line-height: 3.3rem;
+    }
+  }
+}

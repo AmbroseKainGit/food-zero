@@ -1,10 +1,10 @@
-import { MenuItem } from "@/typings"
+import { Category } from "@/typings"
 import { url } from "inspector"
 import Image from "next/image"
 import { GrapeSvg } from "../Svg/GrapeSvg"
 import { AvocadoSvg } from "../Svg/AvocadoSvg"
 interface props {
-    data: MenuItem
+    data: Category
     loopIndex: number
 }
 
@@ -33,7 +33,7 @@ export const Menu = ({ data, loopIndex }: props) => {
             }
             <div className="menu__container__top">
                 <div className="menu__container__top__title">{data.name}</div>
-                <div className="menu__container__top__description">{data.description} {loopIndex}</div>
+                <div className="menu__container__top__description">{data.description}</div>
             </div>
             <div className={`menu__container__bottom ${classEven}`}>
                 <div className="menu__container__bottom__picture" style={backgroundImg}>

@@ -23,8 +23,8 @@ const Cover = () => {
         <h1 className="cover__nav-item">Home</h1>
         <Link onClick={() => dispatch(changeVisibilityMenu())} href="/menu" className="cover__nav-item">Menu</Link>
         <h1 className="cover__nav-item">Blogs</h1>
-        <h1 className="cover__nav-item">About</h1>
-        <h1 className="cover__nav-item">Contact</h1>
+        <Link onClick={() => dispatch(changeVisibilityMenu())} href="/about" className="cover__nav-item">About</Link>
+        <Link onClick={() => dispatch(changeVisibilityMenu())} href="/contact" className="cover__nav-item">Contact</Link>
       </div>
       <div className="cover__contact">
         <h1>Contact</h1>
