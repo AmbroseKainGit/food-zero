@@ -11,7 +11,7 @@ function Page() {
   const logOut = async () => {
     await signOutAction();
     dispatch(setUser(null));
-    return router.push("/");
+    return router.push("/login");
   };
   return (
     <div className="wrapper">
