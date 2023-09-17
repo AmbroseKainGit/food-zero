@@ -20,9 +20,9 @@ const Cover = () => {
         &times;
       </span>
       <div className="cover__nav">
-        <h1 className="cover__nav-item">Home</h1>
+      <Link onClick={() => dispatch(changeVisibilityMenu())} href="/" className="cover__nav-item">Home</Link>
         <Link onClick={() => dispatch(changeVisibilityMenu())} href="/menu" className="cover__nav-item">Menu</Link>
-        <h1 className="cover__nav-item">Blogs</h1>
+        <Link onClick={() => dispatch(changeVisibilityMenu())} href="/blog" className="cover__nav-item">Blog</Link>
         <Link onClick={() => dispatch(changeVisibilityMenu())} href="/about" className="cover__nav-item">About</Link>
         <Link onClick={() => dispatch(changeVisibilityMenu())} href="/contact" className="cover__nav-item">Contact</Link>
       </div>
