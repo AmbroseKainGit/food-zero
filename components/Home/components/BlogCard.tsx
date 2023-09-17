@@ -16,7 +16,7 @@ export const BlogCard = ({ image, title, content, slug }: Props) => {
         <h3>{title}</h3>
         <p>{content}</p>
         <button>
-          <Link href={`/${slug}`}>
+          <Link href={`/blog/${slug}`}>
             <span>Read More</span>
             <FiArrowRight />
           </Link>

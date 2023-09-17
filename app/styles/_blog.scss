@@ -1,0 +1,14 @@
+
+
+.blog-container-page{
+width: 100%;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+padding-top: 22.6rem;
+}
+
+//************** Single post
+
+.main-container-single-post{
+  @include main_container();
+}

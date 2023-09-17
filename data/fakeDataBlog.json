@@ -12,5 +12,33 @@
     "title": "Asparagus Spring Salad with Rocket, Goat's Cheese",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     "slug": "asparagus-vegetables"
+  },
+  {
+    "id":3,
+    "image": "/static/dough-dumplings.webp",
+    "title": "The Best Style of Dough for Dumplings",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "slug": "dough-dumplings"
+  },
+  {
+    "id":4,
+    "image": "/static/lemon-water.webp",
+    "title": "7 Reasons to Start Your Day With Lemon Water",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "slug": "lemon-water"
+  },
+  {
+    "id":4,
+    "image": "/static/goat-meat.webp",
+    "title": "Three Ideas for Cooking Goat Meat at Home",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "slug": "goat-meat"
+  },
+  {
+    "id":4,
+    "image": "/static/sparkling-wine.webp",
+    "title": "12 Sparkling Wines We're Loving This Summer",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "slug": "sparkling-wine"
   }
 ]
