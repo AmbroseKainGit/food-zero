@@ -2,64 +2,16 @@
 import { About } from "@/components/About/About";
 import { HeaderComponent } from "@/components/General/HeaderComponent";
 import { Staff } from "@/components/Staff/Staff";
+import { useQuery } from "@apollo/client";
+import { queryStaff } from "@/utils/querys";
+import { VideoBanner } from "@/components/VideoBanner/VideoBanner";
 import { useState } from "react";
+import { StaffQuery } from "@/typings"
 export default function Menu() {
   const title = 'Our Story';
   const image = '/static/about_1.webp';
   const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet. Turpis egestas ultricies purus auctor tincidunt lacus nunc. ';
-  const Staffdata = {
-    "staff": [
-      {
-        "name": "Jhon bols",
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Restaurant Owner",
-        "image": "https://source.unsplash.com/random/900x900?sig=1"
-      },
-      {
-        "name": "Joaquin Huhges", 
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Executive Chef",
-        "image": "https://source.unsplash.com/random/900x900?sig=2"
-      },
-      {
-        "name": "Jane Doe",
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Head Chef",
-        "image": "https://source.unsplash.com/random/900x900?sig=3"
-      },
-      {
-        "name": "Cristian Doe",
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Sous Chef",
-        "image": "https://source.unsplash.com/random/900x900?sig=4"
-      },
-      {
-        "name": "Jhon bols",
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Restaurant Owner",
-        "image": "https://source.unsplash.com/random/900x900?sig=1"
-      },
-      {
-        "name": "Joaquin Huhges", 
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Executive Chef",
-        "image": "https://source.unsplash.com/random/900x900?sig=2"
-      },
-      {
-        "name": "Jane Doe",
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Head Chef",
-        "image": "https://source.unsplash.com/random/900x900?sig=3"
-      },
-      {
-        "name": "Cristian Doe",
-        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
-        "role": "Sous Chef",
-        "image": "https://source.unsplash.com/random/900x900?sig=4"
-      },
-    ]
-  }
-
+  const { loading, error, data } = useQuery<StaffQuery>(queryStaff);
   const [topPosition, settopPosition] = useState(0)
   return (
     <>
@@ -74,11 +26,12 @@ export default function Menu() {
         background={'/static/about_cover.webp'}
       />
       <About title={title} description={description} image={image} />
-      {Staffdata && Staffdata.staff.map((staffMember, index) => {
+      {data && data.staff.map((staffMember, index) => {
         return (
           <Staff data={staffMember} key={index} loopIndex={index} />
         )
       })}
+      <VideoBanner videoId="n8YwWZy3bcM" title="It looks delicious" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
     </>
   );
 }

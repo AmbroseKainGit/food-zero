@@ -27,3 +27,15 @@ query Categories {
   }
 }
 `;
+export const queryStaff = gql`
+query Staff {
+  staff {
+    id
+    name
+    description
+    image
+    role
+    disabled
+  }
+}
+`;
