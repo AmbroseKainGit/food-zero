@@ -7,7 +7,6 @@ import { CategoryQuery } from "@/typings"
 export default function Menu() {
  
   const { loading, error, data } = useQuery<CategoryQuery>(queryMenu);
-  console.log(data);
   return (
     <>
       <HeaderComponent

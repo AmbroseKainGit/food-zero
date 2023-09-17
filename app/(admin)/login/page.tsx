@@ -16,8 +16,6 @@ function Page() {
     if (error) {
       return console.log(error);
     }
-    // else successful
-    console.log(result);
     return router.push("/admin");
   };
   useEffect(() => {
