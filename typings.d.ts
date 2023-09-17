@@ -27,7 +27,7 @@ export interface StaffMember {
   image: string
 }
 
-export interface Staff {
+export interface StaffQuery {
   staff: StaffMember[]
 }
 
