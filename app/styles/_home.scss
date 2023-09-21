@@ -368,7 +368,7 @@
 
 // ---------------Card call to menu
 
-.calltomenu-card-link{
+.calltomenu-card-link {
   width: 100%;
   text-decoration: none;
 }
@@ -392,4 +392,65 @@
       line-height: 6.4rem; /* 133.333% */
     }
   }
+}
+
+/**Testiomnials**/
+
+/*******************Testimonial Card*********************/
+
+.styles-module_item-tracker__3bypy{
+  gap:4rem;
+}
+
+.testimonial-container-main {
+  @include main_container($main_background: $main-4);
+  height: 111.3rem;
+  display: flex;
+  align-items: center;
+
+  .testimonials-inner-container{
+@include inner_container( $gap: 5rem, $color: $common-black );
+h3{
+  font-size: 10.8rem;
+  font-weight: 700;
+  line-height: 12.0rem;
+}
+  .card-testimonial-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+    height: 100%;
+    width: 100%;
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(15px);
+
+    .information-testimonial-container {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 4.8rem;
+
+      p{
+        padding-left: 7px;
+      }
+
+      .stars-container{
+svg{
+  color:#FDCC0D;
+}
+      }
+    }
+
+    .comment-testimonial-container {
+      font-size: 4.8rem;
+      font-weight: 700;
+      line-height: 6.4rem;
+    }
+  }
+}
 }

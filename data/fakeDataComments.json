@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "stars": 4,
+    "comment": "The food was delicious, but the service could have been faster."
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "stars": 5,
+    "comment": "Outstanding experience! The staff was friendly, and the food was exceptional."
+  },
+  {
+    "id": 3,
+    "name": "Robert Johnson",
+    "stars": 3,
+    "comment": "Good food, but the ambiance could be improved."
+  },
+  {
+    "id": 4,
+    "name": "Alice Wilson",
+    "stars": 2,
+    "comment": "Disappointing. The food was cold, and the service was terrible."
+  },
+  {
+    "id": 5,
+    "name": "Emily Brown",
+    "stars": 5,
+    "comment": "I love this place! The food is consistently great, and the atmosphere is lovely."
+  }
+]
+
+
+
+
+
+
