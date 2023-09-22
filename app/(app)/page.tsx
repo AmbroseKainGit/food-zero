@@ -9,6 +9,7 @@ import { queryCategories } from "@/utils/querys";
 
 import { Reservation } from "@/components/General/Reservation";
 import { CallToMenu } from "@/components/Home/CallToMenu";
+import { Testimonials } from "@/components/Home/Testimonials";
 export default function Landing() {
   const { loading, error, data } = useQuery(queryCategories);
   console.log(data);
@@ -35,6 +36,9 @@ export default function Landing() {
       </div>
       <div className="calltomenu-container-main">
         <CallToMenu />
+      </div>
+      <div className="testimonial-container-main">
+        <Testimonials/>
       </div>
     </>
   );
