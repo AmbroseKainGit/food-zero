@@ -1,6 +1,7 @@
 "use client";
 import { Contact } from "@/components/Contact/Contact";
 import { HeaderComponent } from "@/components/General/HeaderComponent";
+import { Reservation } from "@/components/General/Reservation";
 export default function Menu() {
   return (
     <>
@@ -16,6 +17,9 @@ export default function Menu() {
         background={'/static/contact_cover.webp'}
       />
       <Contact email="info@foodzero.com" phone="+86 852 346 000" address="1959 Sepulveda Blvd. Culver City, CA, 90230" />
+      <div className="calendar-container-main">
+        <Reservation />
+      </div>
     </>
   );
 }

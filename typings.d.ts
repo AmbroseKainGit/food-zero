@@ -31,3 +31,14 @@ export interface StaffQuery {
   staff: StaffMember[]
 }
 
+export interface MeatProcess{
+  name: string
+  description: string
+  order: number
+  image: string
+}
+
+export interface MeatProcessQuery {
+  getAllMeatProcess: MeatProcess[]
+}
+
