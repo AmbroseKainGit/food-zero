@@ -5,7 +5,7 @@ import { Staff } from "@/components/Staff/Staff";
 import { useQuery } from "@apollo/client";
 import { queryStaff, queryGetAllMeatProcess } from "@/utils/querys";
 import { VideoBanner } from "@/components/VideoBanner/VideoBanner";
-import { useState } from "react";
+import { Reservation } from "@/components/General/Reservation";
 import { StaffQuery, MeatProcessQuery } from "@/typings"
 import { Process } from "@/components/Process/Process";
 export default function Menu() {
@@ -13,7 +13,7 @@ export default function Menu() {
   const image = '/static/about_1.webp';
   const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet. Turpis egestas ultricies purus auctor tincidunt lacus nunc. ';
   const { loading, error, data } = useQuery<StaffQuery>(queryStaff);
-  const { loading:loadingMP, error: errorMP , data: dataMeatProcess  } = useQuery<MeatProcessQuery>(queryGetAllMeatProcess); 
+  const { loading: loadingMP, error: errorMP, data: dataMeatProcess } = useQuery<MeatProcessQuery>(queryGetAllMeatProcess);
   return (
     <>
       <HeaderComponent
@@ -35,9 +35,12 @@ export default function Menu() {
       <VideoBanner videoId="n8YwWZy3bcM" title="It looks delicious" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
       {dataMeatProcess && dataMeatProcess.getAllMeatProcess.map((meatProcess, index) => {
         return (
-          <Process data={meatProcess} key={index} loopIndex={index} processTitle="Sophisticated Process"/>
+          <Process data={meatProcess} key={index} loopIndex={index} processTitle="Sophisticated Process" />
         )
-      })} 
+      })}
+      <div className="calendar-container-main">
+        <Reservation />
+      </div>
     </>
   );
 }
