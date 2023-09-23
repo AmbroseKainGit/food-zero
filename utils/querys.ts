@@ -39,3 +39,14 @@ query Staff {
   }
 }
 `;
+export const queryGetAllMeatProcess = gql`
+query GetAllMeatProcess {
+  getAllMeatProcess {
+    id
+    image
+    name
+    description
+    order
+  }
+}
+`;
