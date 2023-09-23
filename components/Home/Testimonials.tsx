@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import data from "@/data/fakeDataComments.json";
 import { TestimonialCard } from "./components/TestimonialCard";
