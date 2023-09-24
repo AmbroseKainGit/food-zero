@@ -8,13 +8,16 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+const queries = ["GetAllMeatProcess", "Staff", "GetParams", "Categories"];
+
 const httpLink = createHttpLink({
   uri:
     process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "http://localhost:4000/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {
-  if (_.operationName === "GetParams") {
+  const operation  = _.operationName;
+  if (queries.includes(operation!)) {
     return { headers };
   }
   const token = localStorage.getItem("token");

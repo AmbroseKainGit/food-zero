@@ -21,7 +21,7 @@ export default function DashboardLayout({
       fetchDataSuccess({
         data: data!,
         loading,
-        error: error
+        error: error?.cause
       })
     );
   }, [data, loading, error, dispatch]);
