@@ -4,7 +4,7 @@ import { signIn } from "@/lib/firebase/auth/loginActions";
 import { useRouter } from "next/navigation";
 import { selectUser } from "@/lib/redux";
 import { useAppSelector } from "@/hooks/redux";
-import { LuLogIn } from 'react-icons/lu';
+import { LuLogIn } from "react-icons/lu";
 
 import Image from "next/image";
 function Page() {
@@ -19,6 +19,8 @@ function Page() {
     if (error) {
       return console.log(error);
     }
+    const token = await result?.user?.getIdToken();
+    localStorage.setItem("token", token || "");
     return router.push("/admin");
   };
   useEffect(() => {
@@ -72,7 +74,10 @@ function Page() {
                   autoComplete="current-password"
                 />
               </label>
-              <button type="submit"><span>Log In</span><LuLogIn/></button>
+              <button type="submit">
+                <span>Log In</span>
+                <LuLogIn />
+              </button>
             </form>
           </div>
         </div>

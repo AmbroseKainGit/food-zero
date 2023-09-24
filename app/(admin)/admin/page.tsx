@@ -20,6 +20,7 @@ function Page() {
   const logOut = async () => {
     await signOutAction();
     dispatch(setUser(null));
+    localStorage.removeItem("token");
     return router.push("/login");
   };
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -33,6 +34,7 @@ function Page() {
   };
   return (
     <>
+    {/* <button style={{marginLeft: 200, zIndex: 20}} onClick={logOut}>Log out</button> */}
     <Sidebar isOpen={sidebarOpen} activeModule={adminOption} toggleSidebar={toggleSidebar} handleMenuItemClick={handleMenuItemClick}/>
     <AdminContent isOpen={sidebarOpen} renderModule={adminOption} params={data}/>
     </>

@@ -85,3 +85,23 @@ export interface Params {
 export interface ParamsQuery {
   getParams: Params
 }
+
+
+export interface IHome {
+  titleComments: string;
+  homeSection1Title: string
+  homeSection1Subtitle: string
+  homeSection1Paragraph1: string
+  homeSection1Paragraph2: string
+  homeSection1Images: string[]
+  homeSection1ImagesText1: string
+  homeSection1ImagesText2: string
+  homeSection2Title: string
+  homeSection2Subtitle: string
+  homeSection2ButtonText: string
+  homeSection3Title: string
+  homeSection3Paragraph: string
+  homeSection3Images: string[]
+  homeSectionMenuTitle: string
+  homeSectionMenuSubtitle: string
+}
