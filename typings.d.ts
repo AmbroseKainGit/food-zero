@@ -88,7 +88,7 @@ export interface ParamsQuery {
 
 
 export interface IHome {
-  titleComments: string;
+  titleCommentsHome: string;
   homeSection1Title: string
   homeSection1Subtitle: string
   homeSection1Paragraph1: string
