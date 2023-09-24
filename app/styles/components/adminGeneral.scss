@@ -1,25 +1,61 @@
 .admin-general-title {
-    padding: 2rem;
-    font-size: 5rem;
-    font-weight: 700;
-    text-align: left;
-    font-family: var(--lato);
-    border-bottom: 1px solid $grey-main;
-
+  padding: 2rem;
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: left;
+  font-family: var(--lato);
+  border-bottom: 1px solid $grey-main;
 }
 .admin-general-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2rem;
-    margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 20rem;
     padding: 2rem;
-    &__card{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        height: 20rem;
-        padding: 2rem;
-        background-color: $grey-main;
+    background-color: $main-4;
+    box-shadow: $primary-shadow;
+    label {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: left;
+      font-family: var(--lato);
+      margin-bottom: 4rem;       
     }
+    input {
+        width: 100%;
+        height: 3rem;
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: left;
+        font-family: var(--lato);
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        border: 1px solid $grey-soft;
+        border-radius: 0.5rem;
+        background-color: $main-4;
+    }
+    button {  
+        height: 6rem;
+        width: fit-content;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        font-family: var(--lato);       
+        padding: 0 4rem;
+        border: 1px solid $grey-soft;
+        border-radius: 0.5rem;
+        background-color: $main-3;
+        color: $common-white;
+        align-self: center;
+        margin: auto;   
+    }
+  }
 }

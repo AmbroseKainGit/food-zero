@@ -3,7 +3,7 @@ import { ParamsQuery, IGeneral } from "@/typings"
 import { useForm } from "@/hooks/useForm";
 
 interface props {
-    handleSave: (id: string|undefined, values: any) => void;
+    handleSave: (id: string | undefined, values: any) => void;
     params?: ParamsQuery | null
 }
 export const General = ({ handleSave, params }: props) => {
@@ -20,7 +20,7 @@ export const General = ({ handleSave, params }: props) => {
     return (
         <>
             <h1 className="admin-general-title">General</h1>
-            <div className="admin-general-container">             
+            <div className="admin-general-container">
                 <div className="admin-general-container__card">
                     <label htmlFor="address">Address</label>
                     <input type="text" name="address" value={address} onChange={handleInputChange} />
