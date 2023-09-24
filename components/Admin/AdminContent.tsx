@@ -7,11 +7,13 @@ import { About } from "./About";
 import { ParamsQuery } from "@/typings";
 import { useMutation } from "@apollo/client";
 import { updateParamsMutation } from "../../utils/mutations";
+import { useAppDispatch } from "@/hooks/redux";
+import { fetchDataSuccess } from "@/lib/redux";
 
 interface props {
   isOpen: boolean;
   renderModule: keyof typeof componentMap;
-  params?: ParamsQuery | null
+  params: ParamsQuery | null; 
 }
 export const componentMap = {
   General,
@@ -19,10 +21,11 @@ export const componentMap = {
   Menu,
   Blog,
   Contact,
-  About,
+  About
 };
 
 export const AdminContent = ({ isOpen, renderModule, params }: props) => {
+  const dispatch = useAppDispatch();
   const RenderedComponent = componentMap[renderModule];
   const [updateParams] = useMutation(updateParamsMutation);
   const handleSave = async (id: string | undefined, values: []) => {
@@ -35,14 +38,26 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
           }
         }
       });
-      console.log("Params Updated:", data);
+      dispatch(
+        fetchDataSuccess({
+          data: {
+            getParams: {
+              ...data.updateParam
+            }
+          },
+          loading: false,
+          error: null
+        })
+      );
     } catch (error) {
       console.error("Error updating params:", error);
     }
   };
   return (
-    <div className={`admin__content ${isOpen ? 'open' : ''}`}>
-      {RenderedComponent && <RenderedComponent params={params} handleSave={handleSave}/>}
+    <div className={`admin__content ${isOpen ? "open" : ""}`}>
+      {RenderedComponent && (
+        <RenderedComponent handleSave={handleSave} params={params} />
+      )}
     </div>
-  )
-}
+  );
+};

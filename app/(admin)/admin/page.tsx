@@ -1,10 +1,10 @@
 "use client";
-import { useAppDispatch } from "@/hooks/redux";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { signOutAction } from "@/lib/firebase/auth/loginActions";
-import { setUser } from "@/lib/redux";
+import { fetchDataSuccess, selectParams, setUser } from "@/lib/redux";
 import { useRouter } from "next/navigation";
 import WithAuth from "../../../components/routes/ProtectedRoute";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Sidebar } from "@/components/Admin/Sidebar";
 import { AdminContent } from "@/components/Admin/AdminContent";
 import MenuOptions from "@/enum";
@@ -15,7 +15,7 @@ import { ParamsQuery } from "@/typings";
 function Page() {
   const { loading, error, data } = useQuery<ParamsQuery>(queryGetParams);
   const router = useRouter();
-  const [url, setUrl] = useState("");
+  const { data: params } = useAppSelector(selectParams);
   const dispatch = useAppDispatch();
   const logOut = async () => {
     await signOutAction();
@@ -24,7 +24,9 @@ function Page() {
     return router.push("/login");
   };
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminOption, setAdminOption] = useState<MenuOptions>(MenuOptions.Option1)
+  const [adminOption, setAdminOption] = useState<MenuOptions>(
+    MenuOptions.Option1
+  );
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -32,11 +34,32 @@ function Page() {
   const handleMenuItemClick = (option: MenuOptions) => {
     setAdminOption(option);
   };
+
+  useEffect(() => {
+    dispatch(
+      fetchDataSuccess({
+        data,
+        loading,
+        error
+      })
+    );
+  }, [data, loading, error, dispatch]);
+
   return (
     <>
-      {/* <button style={{marginLeft: 200, zIndex: 20}} onClick={logOut}>Log out</button> */}
-      <Sidebar isOpen={sidebarOpen} activeModule={adminOption} toggleSidebar={toggleSidebar} handleMenuItemClick={handleMenuItemClick} />
-      {data && <AdminContent isOpen={sidebarOpen} renderModule={adminOption} params={data} />}
+      <Sidebar
+        isOpen={sidebarOpen}
+        activeModule={adminOption}
+        toggleSidebar={toggleSidebar}
+        handleMenuItemClick={handleMenuItemClick}
+      />
+      {params && (
+        <AdminContent
+          isOpen={sidebarOpen}
+          renderModule={adminOption}
+          params={params}
+        />
+      )}
     </>
   );
 }
