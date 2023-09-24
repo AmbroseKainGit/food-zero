@@ -9,12 +9,17 @@ interface props {
 export const Menu = ({ handleSave, params }: props) => {
     const { handleInputChange, values } = useForm<IMenu>({
         menuSectionTitle: params?.getParams?.menuSectionTitle || "",
-        menuSectionSubtitle: params?.getParams?.menuSectionSubtitle || "",       
-        backgroundMenu: params?.getParams?.backgroundMenu || "",       
+        menuSectionSubtitle: params?.getParams?.menuSectionSubtitle || "",
+        backgroundMenu: params?.getParams?.backgroundMenu || "",
     });
     return (
         <>
-            <h1 className="admin-general-title">Menú</h1>
+            <div className="admin-general-header">
+                <h1 className="admin-general-header__title">Menú</h1>
+                <button onClick={() => handleSave(params?.getParams.id, values)}>
+                    Guardar
+                </button>
+            </div>
             <div className="admin-general-container">
                 {Object.entries(values).map(([key, value]) => (
                     <div key={key} className="admin-general-container__card">
@@ -27,11 +32,6 @@ export const Menu = ({ handleSave, params }: props) => {
                         />
                     </div>
                 ))}
-                <div className="admin-general-container__card">
-                    <button onClick={() => handleSave(params?.getParams.id, values)}>
-                        Guardar
-                    </button>
-                </div>
             </div>
         </>
     )

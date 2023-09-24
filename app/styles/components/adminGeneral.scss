@@ -1,16 +1,35 @@
-.admin-general-title {
+.admin-general-header {
   padding: 2rem;
-  font-size: 5rem;
-  font-weight: 700;
-  text-align: left;
-  font-family: var(--lato);
   border-bottom: 1px solid $grey-main;
+  display: flex;
+  justify-content: space-between;
+  .admin-general-header__title {
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: left;
+    font-family: var(--lato);
+  }
+  button {
+    height: 6rem;
+    width: fit-content;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    font-family: var(--lato);
+    padding: 0 4rem;
+    border: 1px solid $grey-soft;
+    border-radius: 0.5rem;
+    background-color: $main-3;
+    color: $common-white;
+  }
 }
 .admin-general-container {
   overflow: auto;
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 10rem);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: min-content;
   grid-gap: 2rem;
   padding: 2rem;
   &__card {
@@ -18,7 +37,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    min-height: 20rem;
+    height: 25rem;   
     padding: 2rem;
     background-color: $main-4;
     box-shadow: $primary-shadow;
@@ -27,36 +46,20 @@
       font-weight: 700;
       text-align: left;
       font-family: var(--lato);
-      margin-bottom: 4rem;       
+      margin-bottom: 4rem;
     }
     input {
-        width: 100%;
-        height: 3rem;
-        font-size: 2rem;
-        font-weight: 700;
-        text-align: left;
-        font-family: var(--lato);
-        margin-bottom: 1rem;
-        padding: 0 1rem;
-        border: 1px solid $grey-soft;
-        border-radius: 0.5rem;
-        background-color: $main-4;
-    }
-    button {  
-        height: 6rem;
-        width: fit-content;
-        cursor: pointer;
-        font-size: 2rem;
-        font-weight: 700;
-        text-align: center;
-        font-family: var(--lato);       
-        padding: 0 4rem;
-        border: 1px solid $grey-soft;
-        border-radius: 0.5rem;
-        background-color: $main-3;
-        color: $common-white;
-        align-self: center;
-        margin: auto;   
+      width: 100%;
+      height: 3rem;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: left;
+      font-family: var(--lato);
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+      border: 1px solid $grey-soft;
+      border-radius: 0.5rem;
+      background-color: $main-4;
     }
   }
 }

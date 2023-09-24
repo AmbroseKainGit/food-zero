@@ -27,25 +27,25 @@ export const Home = ({ handleSave, params }: props) => {
   });
   return (
     <>
-        <h1 className="admin-general-title">General</h1>
-        <div className="admin-general-container">
-            {Object.entries(values).map(([key, value]) => (
-                <div key={key} className="admin-general-container__card">
-                    <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
-                    <input
-                        type="text"
-                        name={key}
-                        value={value}
-                        onChange={handleInputChange}
-                    />
-                </div>
-            ))}
-            <div className="admin-general-container__card">
-                <button onClick={() => handleSave(params?.getParams.id, values)}>
-                    Guardar
-                </button>
-            </div>
-        </div>
+      <div className="admin-general-header">
+        <h1 className="admin-general-header__title">Home</h1>
+        <button onClick={() => handleSave(params?.getParams.id, values)}>
+          Guardar
+        </button>
+      </div>
+      <div className="admin-general-container">
+        {Object.entries(values).map(([key, value]) => (
+          <div key={key} className="admin-general-container__card">
+            <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
+            <input
+              type="text"
+              name={key}
+              value={value}
+              onChange={handleInputChange}
+            />
+          </div>
+        ))}       
+      </div>
     </>
-)
+  )
 };

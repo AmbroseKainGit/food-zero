@@ -14,7 +14,12 @@ export const Contact = ({ handleSave, params }: props) => {
     });
     return (
         <>
-            <h1 className="admin-general-title">Contact</h1>
+            <div className="admin-general-header">
+                <h1 className="admin-general-header__title">Contact</h1>
+                <button onClick={() => handleSave(params?.getParams.id, values)}>
+                    Guardar
+                </button>
+            </div>
             <div className="admin-general-container">
                 {Object.entries(values).map(([key, value]) => (
                     <div key={key} className="admin-general-container__card">
@@ -27,11 +32,6 @@ export const Contact = ({ handleSave, params }: props) => {
                         />
                     </div>
                 ))}
-                <div className="admin-general-container__card">
-                    <button onClick={() => handleSave(params?.getParams.id, values)}>
-                        Guardar
-                    </button>
-                </div>
             </div>
         </>
     )
