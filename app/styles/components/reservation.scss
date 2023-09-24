@@ -6,17 +6,26 @@
     height: 111.3rem;
     align-items: center;
     justify-content: center;
+    @media(max-width:1440px){
+      height: 70rem;
+    }
     .reservation-title {
       margin-bottom: 1.8rem;
       h2 {
         font-size: 10.8rem;
         font-weight: 700;
         line-height: 12rem;
+        @media(max-width:1440px){
+          font-size: 7rem;
+        }
       }
     }
 
     .reservation-subtitle {
       margin-bottom: 13.3rem;
+      @media(max-width:1440px){
+        margin-bottom: 5rem;
+      }
       p {
         font-family: var(--lato);
         font-size: 2.4rem;
@@ -39,6 +48,11 @@
           font-weight: 700;
           line-height: 4.8rem; /* 150% */
           color:$common-white;
+          @media(max-width:1440px){
+            width: 26rem;
+            padding-top: 6px;
+            padding-bottom: 6px;
+          }
         }
         .form-fields-container {
           display: flex;
@@ -51,6 +65,9 @@
             select {
               width: 100%;
               height: 9.6rem;
+              @media(max-width:1440px){
+                height: 6rem;
+              }
             }
 
             input {
@@ -70,6 +87,9 @@
             input[type="time"]::-webkit-calendar-picker-indicator {
               font-size: 4rem;
               opacity: 0.4;
+              @media(max-width:1440px){
+                font-size: 3rem;
+              }
             }
 
             select {
@@ -87,6 +107,11 @@
                 calc(100% - 15px) calc(1em + 24px), calc(100% - 5em) 0.5em;
               background-size: 20px 20px, 20px 20px, 1px 6em;
               background-repeat: no-repeat;
+              @media(max-width:1440px){
+                margin-bottom: 7rem;
+                background-position: calc(100% - 34px) calc(1em + 12px),
+                calc(100% - 15px) calc(1em + 12px), calc(100% - 5em) 0.5em;
+              }
             }
           }
         }

@@ -8,6 +8,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    @media(max-width:1440px){
+      padding-left: $BP;
+      padding-right: $BP;
+    }
     &__logo {
       width: 26%;
     }

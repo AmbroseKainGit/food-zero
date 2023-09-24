@@ -4,6 +4,10 @@
     width: 100%;
     padding: 0 $XL;
     background-color: $main_background;
+
+    @media (max-width: 1440px) {
+        padding: 0 $BP;
+    }
 }
 
 @mixin inner_container($width:100%, $max-width:$max-width, $display:flex, $flex-directiom: column, $gap: 5rem, $background-color: transparent, $PXY: 0 0 ,$color: #fff ){
@@ -14,7 +18,10 @@
     color: $color;
     display: $display;
     flex-direction: $flex-directiom;
-    gap: $gap
+    gap: $gap;
+    @media (max-width: 1440px) {
+        max-width: $med-width;
+    }    
 }
 
 @mixin section_button_template( $width:34.4rem, $PXY: 0 0){
@@ -24,3 +31,4 @@
     justify-content: center;
     align-items: center;
 }
+

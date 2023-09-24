@@ -3,7 +3,7 @@ export const Header = () => {
   return (
     <header className="header-container">
       <div className="hero-header-title">
-        <h2>Healthy Eating is important part of lifestyle</h2>
+        <h1>Healthy Eating is important part of lifestyle</h1>
         <p>Discovering Nutritional Delights: A Path to Wellness</p>
         <div className="hero-header-scroll">
           <p>Scroll ---------------------------</p>
