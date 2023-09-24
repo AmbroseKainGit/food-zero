@@ -8,7 +8,12 @@ interface props {
 }
 export const About = ({ handleSave, params }: props) => {
     const { handleInputChange, values } = useForm<IAbout>({
-        backgroundAbout: params?.getParams?.blogDetailCommentTitle || "",
+        backgroundAbout: params?.getParams?.backgroundAbout || "",
+        aboutSectionTitle: params?.getParams?.aboutSectionTitle || "",
+        aboutSectionParagraph: params?.getParams?.aboutSectionParagraph || "",
+        aboutBannerVideoTitle: params?.getParams?.aboutBannerVideoTitle || "",
+        aboutBannerVideoParagraph: params?.getParams?.aboutBannerVideoParagraph || "",
+        aboutBannerVideoId: params?.getParams?.aboutBannerVideoId || "",
     });
     return (
         <>

@@ -44,6 +44,11 @@ export interface MeatProcessQuery {
 
 export interface Params {
   address: string
+  aboutSectionTitle: string
+  aboutSectionParagraph: string
+  aboutBannerVideoTitle: string
+  aboutBannerVideoParagraph: string
+  aboutBannerVideoId: string
   backgroundAbout: string
   backgroundBlog: string
   backgroundBlogDetail: string
@@ -137,4 +142,9 @@ export interface IBlog {
 }
 export interface IAbout {
   backgroundAbout: string
+  aboutSectionTitle: string
+  aboutSectionParagraph: string
+  aboutBannerVideoTitle: string
+  aboutBannerVideoParagraph: string
+  aboutBannerVideoId: string
 }
