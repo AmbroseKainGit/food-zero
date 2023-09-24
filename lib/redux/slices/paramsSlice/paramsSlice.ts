@@ -27,11 +27,11 @@ export default paramsSlice.reducer;
 /* Types */
 export interface ParamsSliceState {
     loading: boolean
-    error: string | null
+    error: any
     data: ParamsQuery | null
 }
 export interface ParamsAction {
     data: ParamsQuery
-    error: string
+    error:  any
     loading: boolean
 }

@@ -38,9 +38,9 @@ function Page() {
   useEffect(() => {
     dispatch(
       fetchDataSuccess({
-        data,
+        data: data!,
         loading,
-        error
+        error: error
       })
     );
   }, [data, loading, error, dispatch]);
