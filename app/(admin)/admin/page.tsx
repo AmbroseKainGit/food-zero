@@ -4,13 +4,16 @@ import { signOutAction } from "@/lib/firebase/auth/loginActions";
 import { setUser } from "@/lib/redux";
 import { useRouter } from "next/navigation";
 import WithAuth from "../../../components/routes/ProtectedRoute";
-import { uploadImage } from "@/utils/uploadImageUtil";
 import { useState } from "react";
-import { url } from "inspector";
-import { set } from "firebase/database";
-import Image from "next/image";
+import { Sidebar } from "@/components/Admin/Sidebar";
+import { AdminContent } from "@/components/Admin/AdminContent";
+import MenuOptions from "@/enum";
+import { useQuery } from "@apollo/client";
+import { queryGetParams } from "@/utils/querys";
+import { ParamsQuery } from "@/typings";
 
 function Page() {
+  const { loading, error, data } = useQuery<ParamsQuery>(queryGetParams);
   const router = useRouter();
   const [url, setUrl] = useState("");
   const dispatch = useAppDispatch();
@@ -19,22 +22,20 @@ function Page() {
     dispatch(setUser(null));
     return router.push("/login");
   };
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [adminOption, setAdminOption] = useState<MenuOptions>(MenuOptions.Option1)
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+  const handleMenuItemClick = (option: MenuOptions) => {
+    setAdminOption(option);   
+  };
   return (
-    <div className="wrapper">
-      <div className="form-wrapper">
-        <h1 className="mt-60 mb-30">ADMIN</h1>
-        <h3 className="mt-60 mb-30">LOG OUT</h3>
-        <button onClick={logOut}> LOG OUT</button>
-        <input
-          type="file"
-          name="test"
-          id="test"
-          onChange={async (ev) => setUrl((await uploadImage(ev)) || "")}
-          accept="image/png, image/jpeg"
-        />
-      </div>
-      <img style={{width: 200, height: 200}} src={url} alt="test" />
-    </div>
+    <>
+    <Sidebar isOpen={sidebarOpen} activeModule={adminOption} toggleSidebar={toggleSidebar} handleMenuItemClick={handleMenuItemClick}/>
+    <AdminContent isOpen={sidebarOpen} renderModule={adminOption} params={data}/>
+    </>
   );
 }
 
