@@ -72,7 +72,7 @@ export interface Params {
   homeSection3Title: string
   homeSectionMenuSubtitle: string
   homeSectionMenuTitle: string
-  id: string,
+  id: string
   instagram: string
   menuSectionSubtitle: string
   menuSectionTitle: string
@@ -86,9 +86,8 @@ export interface ParamsQuery {
   getParams: Params
 }
 
-
 export interface IHome {
-  titleCommentsHome: string;
+  titleCommentsHome: string
   homeSection1Title: string
   homeSection1Subtitle: string
   homeSection1Paragraph1: string
@@ -107,11 +106,16 @@ export interface IHome {
 }
 
 export interface IGeneral {
-  address: string;
+  address: string
   email: string
   facebook: string
   instagram: string
   phone: string
   twitter: string
   youtube: string
+}
+
+export interface IMenu {
+  menuSectionSubtitle: string
+  menuSectionTitle: string
 }

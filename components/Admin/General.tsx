@@ -16,39 +16,22 @@ export const General = ({ handleSave, params }: props) => {
         twitter: params?.getParams?.twitter || "",
         youtube: params?.getParams?.youtube || "",
     });
-    const { address, email, facebook, instagram, phone, twitter, youtube } = values;
+
     return (
         <>
             <h1 className="admin-general-title">General</h1>
             <div className="admin-general-container">
-                <div className="admin-general-container__card">
-                    <label htmlFor="address">Address</label>
-                    <input type="text" name="address" value={address} onChange={handleInputChange} />
-                </div>
-                <div className="admin-general-container__card">
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name="email" value={email} onChange={handleInputChange} />
-                </div>
-                <div className="admin-general-container__card">
-                    <label htmlFor="facebook">Facebook</label>
-                    <input type="text" name="facebook" value={facebook} onChange={handleInputChange} />
-                </div>
-                <div className="admin-general-container__card">
-                    <label htmlFor="instagram">Instagram</label>
-                    <input type="text" name="instagram" value={instagram} onChange={handleInputChange} />
-                </div>
-                <div className="admin-general-container__card">
-                    <label htmlFor="phone">Phone</label>
-                    <input type="text" name="phone" value={phone} onChange={handleInputChange} />
-                </div>
-                <div className="admin-general-container__card">
-                    <label htmlFor="twitter">Twitter</label>
-                    <input type="text" name="twitter" value={twitter} onChange={handleInputChange} />
-                </div>
-                <div className="admin-general-container__card">
-                    <label htmlFor="youtube">Youtube</label>
-                    <input type="text" name="youtube" value={youtube} onChange={handleInputChange} />
-                </div>
+                {Object.entries(values).map(([key, value]) => (
+                    <div key={key} className="admin-general-container__card">
+                        <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
+                        <input
+                            type="text"
+                            name={key}
+                            value={value}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                ))}
                 <div className="admin-general-container__card">
                     <button onClick={() => handleSave(params?.getParams.id, values)}>
                         Guardar
