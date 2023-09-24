@@ -24,13 +24,18 @@ export const Home = ({ params }: props) => {
     homeSection3Images: [],
     homeSection3Paragraph: ""
   });
-  const {titleComments} = values;
+  const { titleComments } = values;
   const arrayAsString = JSON.stringify(params);
   return (
     <>
       <pre>{arrayAsString}</pre>
       <h1>Home</h1>
-      <input type="text" value={titleComments} name="titleComments" onChange={handleInputChange}/>
+      <input
+        type="text"
+        value={titleComments}
+        name="titleComments"
+        onChange={handleInputChange}
+      />
     </>
   );
 };
