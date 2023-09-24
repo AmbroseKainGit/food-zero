@@ -25,87 +25,27 @@ export const Home = ({ handleSave, params }: props) => {
     homeSection3Images: params?.getParams.homeSection3Images || [],
     homeSection3Paragraph: params?.getParams.homeSection3Paragraph || ""
   });
-  const { titleCommentsHome, homeSection1Title } = values;
   return (
     <>
-      <h1 className="admin-general-title">Home</h1>
-      <div className="admin-general-container">
-        <div className="admin-general-container__card">
-      
-        </div>
-      </div>
-      <form
-        className="form-container"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSave(params?.getParams.id, values);
-        }}
-      >
-        <div className="form-container__section">
-          <h2 className="form-container__section-title">Section 1</h2>
-          <div className="form-container__section-row">
-            <div className="form-container__section-row__field">
-              <label
-                htmlFor="homeSection1Title"
-                className="form-container__section-row__field-label"
-              >
-                Title
-              </label>
-              <input
-                type="text"
-                id="homeSection1Title"
-                name="homeSection1Title"
-                value={homeSection1Title}
-                onChange={handleInputChange}
-                className="form-container__section-row__field-input"
-              />
+        <h1 className="admin-general-title">General</h1>
+        <div className="admin-general-container">
+            {Object.entries(values).map(([key, value]) => (
+                <div key={key} className="admin-general-container__card">
+                    <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
+                    <input
+                        type="text"
+                        name={key}
+                        value={value}
+                        onChange={handleInputChange}
+                    />
+                </div>
+            ))}
+            <div className="admin-general-container__card">
+                <button onClick={() => handleSave(params?.getParams.id, values)}>
+                    Guardar
+                </button>
             </div>
-            <div className="form-container__section-row__field">
-              <label
-                htmlFor="titleCommentsHome"
-                className="form-container__section-row__field-label"
-              >
-                Field 2
-              </label>
-              <input
-                type="text"
-                id="titleCommentsHome"
-                name="titleCommentsHome"
-                value={titleCommentsHome}
-                onChange={handleInputChange}
-                className="form-container__section-row__field-input"
-              />
-            </div>
-            <div className="form-container__section-row__field">
-              <label
-                htmlFor="field3"
-                className="form-container__section-row__field-label"
-              >
-                Field 3
-              </label>
-              <input
-                type="text"
-                id="field3"
-                name="field3"
-                value={""}
-                onChange={handleInputChange}
-                className="form-container__section-row__field-input"
-              />
-            </div>
-          </div>
         </div>
-
-        <div className="form-container__section">
-          <h2 className="form-container__section-title">Section 2</h2>
-          <div className="form-container__section-row">
-            {/* Repeat the same structure as above for Section 2 */}
-          </div>
-        </div>
-        <button type="submit" className="form-container__submit">
-          {" "}
-          Save
-        </button>
-      </form>
     </>
-  );
+)
 };
