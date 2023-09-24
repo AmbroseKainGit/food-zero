@@ -5,6 +5,10 @@
   position: relative;
   padding-top: 30.2rem;
 
+  @media (max-width: 1440px) {
+    height: 254rem;
+  }
+
   img:nth-child(2) {
     position: absolute;
     top: 43.4rem; // Adjust this value as needed
@@ -34,11 +38,18 @@
 
 .hero-header-title {
   @include inner_container($max-width: 105.7rem);
-  h2 {
+  @media (max-width: 1440px) {
+    max-width: 105.7rem;
+  }
+  h1 {
     font-size: 14.8rem;
     font-weight: 700;
     line-height: 15.2rem;
     z-index: 2;
+    @media (max-width: 1440px) {
+      font-size: 9rem;
+      line-height: 115%;
+    }
   }
 
   p {
@@ -47,6 +58,9 @@
     font-weight: 400;
     line-height: 3.36rem; /* 33.6px */
     letter-spacing: 0.48px;
+    @media (max-width: 1440px) {
+      font-size: 1.8rem;
+    }
   }
 }
 
@@ -72,6 +86,14 @@
 .header-inner-section {
   @include inner_container($flex-directiom: row, $gap: 0);
   margin-top: 76.1rem;
+  .first-inner-section {
+    @media (max-width: 1440px) {
+      img {
+        width: 500px;
+        height: auto;
+      }
+    }
+  }
   .first-inner-section,
   .second-inner-section {
     @include inner_container($width: 50%);
@@ -119,6 +141,9 @@
     font-size: 10.8rem;
     font-weight: 700;
     line-height: 12rem; /* 111.111% */
+    @media (max-width: 1440px) {
+      font-size: 7rem;
+    }
   }
 
   p {
@@ -141,7 +166,9 @@
     @include section_button_template();
     border: 2px solid $common-black;
     background: $main;
-
+    @media (max-width: 1440px) {
+      width: 27rem;
+    }
     &:hover {
       cursor: pointer;
     }
@@ -154,6 +181,9 @@
     line-height: 4.8rem; /* 150% */
     color: $common-white;
     text-decoration: none;
+    @media (max-width: 1440px) {
+      padding: 1rem 4.6rem;
+    }
   }
 }
 
@@ -175,12 +205,21 @@
 
     .ad-img-container {
       z-index: 2;
+      img {
+        @media (max-width: 1440px) {
+          width: 600px;
+          height: auto;
+        }
+      }
     }
 
     h3 {
       font-size: 10.8rem;
       font-weight: 700;
       line-height: 12rem; /* 111.111% */
+      @media (max-width: 1440px) {
+        font-size: 7rem;
+      }
     }
 
     p {
@@ -200,6 +239,10 @@
       position: absolute;
       bottom: 30px;
       right: 0;
+      @media (max-width: 1440px) {
+        width: 355px;
+        height: auto;
+      }
     }
     img:nth-child(4) {
       position: absolute;
@@ -222,6 +265,9 @@
   @include inner_container($flex-directiom: row, $gap: 6rem);
   height: 86.7rem;
   align-items: center;
+  @media (max-width: 1440px) {
+    gap: 4rem;
+  }
 }
 
 .card-information-container {
@@ -239,6 +285,9 @@
     font-size: 4.8rem;
     font-weight: 700;
     line-height: 6.4rem; /* 133.333% */
+    @media (max-width: 1440px) {
+      font-size: 3.8rem;
+    }
   }
 
   p {
@@ -262,6 +311,9 @@
     @include inner_container($flex-directiom: row, $gap: 6rem);
     height: 156rem;
     align-items: center;
+    @media (max-width: 1440px) {
+      height: 120rem;
+    }
   }
 }
 
@@ -276,11 +328,20 @@
 
   img {
     margin-bottom: 6.8rem;
+    @media (max-width: 1440px) {
+      width: 560px;
+      height: auto;
+      margin-bottom: 4rem;
+    }
   }
 
   .information-blog-container {
     width: 100%;
     padding: 0 7.5rem;
+
+    @media (max-width: 1440px) {
+      padding: 0 4rem;
+    }
 
     h3 {
       font-size: 4.8rem;
@@ -297,6 +358,10 @@
       line-height: 3.8rem; /* 30.8px */
       letter-spacing: 0.44px;
       margin-bottom: 4.6rem;
+
+      @media (max-width: 1440px) {
+        margin-bottom: 4rem;
+      }
     }
 
     button {
@@ -346,6 +411,9 @@
         font-size: 10.8rem;
         font-weight: 700;
         line-height: 12rem; /* 111.111% */
+        @media (max-width: 1440px) {
+          font-size: 7rem;
+        }
       }
 
       p {
@@ -398,8 +466,8 @@
 
 /*******************Testimonial Card*********************/
 
-.styles-module_item-tracker__3bypy{
-  gap:4rem;
+.styles-module_item-tracker__3bypy {
+  gap: 4rem;
 }
 
 .testimonial-container-main {
@@ -407,50 +475,61 @@
   height: 111.3rem;
   display: flex;
   align-items: center;
+  @media (max-width: 1440px) {
+    height: 90rem;
+  }
 
-  .testimonials-inner-container{
-@include inner_container( $gap: 5rem, $color: $common-black );
-h3{
-  font-size: 10.8rem;
-  font-weight: 700;
-  line-height: 12.0rem;
-}
-  .card-testimonial-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 2rem;
-    height: 100%;
-    width: 100%;
-    padding: 35px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-
-    backdrop-filter: blur(15px);
-
-    .information-testimonial-container {
-      font-size: 3.2rem;
+  .testimonials-inner-container {
+    @include inner_container($gap: 5rem, $color: $common-black);
+    h3 {
+      font-size: 10.8rem;
       font-weight: 700;
-      line-height: 4.8rem;
-
-      p{
-        padding-left: 7px;
-      }
-
-      .stars-container{
-svg{
-  color:#FDCC0D;
-}
+      line-height: 12rem;
+      @media (max-width: 1440px) {
+        font-size: 7rem;
+        line-height: 115%;
       }
     }
+    .card-testimonial-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 2rem;
+      height: 100%;
+      width: 100%;
+      padding: 35px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.45);
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
-    .comment-testimonial-container {
-      font-size: 4.8rem;
-      font-weight: 700;
-      line-height: 6.4rem;
+      backdrop-filter: blur(15px);
+
+      .information-testimonial-container {
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 4.8rem;
+
+        p {
+          padding-left: 7px;
+        }
+
+        .stars-container {
+          svg {
+            color: #fdcc0d;
+          }
+        }
+      }
+
+      .comment-testimonial-container {
+        font-size: 4.8rem;
+        font-weight: 700;
+        line-height: 6.4rem;
+        @media (max-width: 1440px) {
+          font-size: 3rem;
+          line-height: 115%;
+        }
+      }
     }
   }
-}
 }
