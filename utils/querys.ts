@@ -59,6 +59,9 @@ export const queryGetParams = gql`
       aboutBannerVideoTitle
       aboutBannerVideoParagraph
       aboutBannerVideoId
+      aboutHeaderSectionTitle
+      aboutHeaderSectionParagraph
+      aboutHeaderSectionImage
       backgroundAbout
       backgroundBlogDetail
       backgroundContact

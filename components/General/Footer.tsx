@@ -37,7 +37,7 @@ export const Footer = () => {
             </div>
             <div className='footer__down'>
                 <div className='footer__down__left'>
-                    © 2020 Zero Inc. All rights Reserved
+                    © 2023 Zero Inc. All rights Reserved
                 </div>
                 <div className='footer__down__right'>
                     <AiOutlineInstagram />

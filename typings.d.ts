@@ -49,6 +49,9 @@ export interface Params {
   aboutBannerVideoTitle: string
   aboutBannerVideoParagraph: string
   aboutBannerVideoId: string
+  aboutHeaderSectionTitle: string
+  aboutHeaderSectionParagraph: string
+  aboutHeaderSectionImage: string
   backgroundAbout: string
   backgroundBlog: string
   backgroundBlogDetail: string
@@ -147,4 +150,7 @@ export interface IAbout {
   aboutBannerVideoTitle: string
   aboutBannerVideoParagraph: string
   aboutBannerVideoId: string
+  aboutHeaderSectionTitle: string
+  aboutHeaderSectionParagraph: string
+  aboutHeaderSectionImage: string
 }

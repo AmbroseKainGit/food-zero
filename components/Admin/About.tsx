@@ -14,6 +14,9 @@ export const About = ({ handleSave, params }: props) => {
         aboutBannerVideoTitle: params?.getParams?.aboutBannerVideoTitle || "",
         aboutBannerVideoParagraph: params?.getParams?.aboutBannerVideoParagraph || "",
         aboutBannerVideoId: params?.getParams?.aboutBannerVideoId || "",
+        aboutHeaderSectionTitle: params?.getParams?.aboutHeaderSectionTitle || "",
+        aboutHeaderSectionParagraph: params?.getParams?.aboutHeaderSectionParagraph || "",
+        aboutHeaderSectionImage: params?.getParams?.aboutHeaderSectionImage || "",
     });
     return (
         <>

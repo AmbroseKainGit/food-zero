@@ -9,6 +9,9 @@ export const updateParamsMutation = gql`
       aboutBannerVideoTitle
       aboutBannerVideoParagraph
       aboutBannerVideoId
+      aboutHeaderSectionTitle
+      aboutHeaderSectionParagraph
+      aboutHeaderSectionImage
       backgroundAbout
       backgroundBlogDetail
       backgroundContact
