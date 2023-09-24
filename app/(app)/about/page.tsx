@@ -8,12 +8,16 @@ import { VideoBanner } from "@/components/VideoBanner/VideoBanner";
 import { Reservation } from "@/components/General/Reservation";
 import { StaffQuery, MeatProcessQuery } from "@/typings"
 import { Process } from "@/components/Process/Process";
+import { useAppSelector } from "@/hooks/redux";
+import { selectParams } from "@/lib/redux";
 export default function Menu() {
   const title = 'Our Story';
   const image = '/static/about_1.webp';
   const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet. Turpis egestas ultricies purus auctor tincidunt lacus nunc. ';
   const { loading, error, data } = useQuery<StaffQuery>(queryStaff);
   const { loading: loadingMP, error: errorMP, data: dataMeatProcess } = useQuery<MeatProcessQuery>(queryGetAllMeatProcess);
+  const { data: params } = useAppSelector(selectParams);
+  console.log(params);
   return (
     <>
       <HeaderComponent
