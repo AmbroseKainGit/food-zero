@@ -27,7 +27,7 @@ const Cover = () => {
         <Link onClick={() => dispatch(changeVisibilityMenu())} href="/contact" className="cover__nav-item">Contact</Link>
       </div>
       <div className="cover__contact">
-        <h1>Contact</h1>
+        <h2>Contact</h2>
         <hr />
         <div className="cover__contact-info">
           <span className="cover__contact-item">+86 852 346 000</span>
