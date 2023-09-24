@@ -105,3 +105,13 @@ export interface IHome {
   homeSectionMenuTitle: string
   homeSectionMenuSubtitle: string
 }
+
+export interface IGeneral {
+  address: string;
+  email: string
+  facebook: string
+  instagram: string
+  phone: string
+  twitter: string
+  youtube: string
+}

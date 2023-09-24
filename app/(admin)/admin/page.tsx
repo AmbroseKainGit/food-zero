@@ -30,13 +30,13 @@ function Page() {
     setSidebarOpen(!sidebarOpen);
   };
   const handleMenuItemClick = (option: MenuOptions) => {
-    setAdminOption(option);   
+    setAdminOption(option);
   };
   return (
     <>
-    {/* <button style={{marginLeft: 200, zIndex: 20}} onClick={logOut}>Log out</button> */}
-    <Sidebar isOpen={sidebarOpen} activeModule={adminOption} toggleSidebar={toggleSidebar} handleMenuItemClick={handleMenuItemClick}/>
-    <AdminContent isOpen={sidebarOpen} renderModule={adminOption} params={data}/>
+      {/* <button style={{marginLeft: 200, zIndex: 20}} onClick={logOut}>Log out</button> */}
+      <Sidebar isOpen={sidebarOpen} activeModule={adminOption} toggleSidebar={toggleSidebar} handleMenuItemClick={handleMenuItemClick} />
+      {data && <AdminContent isOpen={sidebarOpen} renderModule={adminOption} params={data} />}
     </>
   );
 }

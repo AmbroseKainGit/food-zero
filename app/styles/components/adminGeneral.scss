@@ -1,0 +1,25 @@
+.admin-general-title {
+    padding: 2rem;
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: left;
+    font-family: var(--lato);
+    border-bottom: 1px solid $grey-main;
+
+}
+.admin-general-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    &__card{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 20rem;
+        padding: 2rem;
+        background-color: $grey-main;
+    }
+}
