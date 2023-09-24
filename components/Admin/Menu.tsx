@@ -10,6 +10,7 @@ export const Menu = ({ handleSave, params }: props) => {
     const { handleInputChange, values } = useForm<IMenu>({
         menuSectionTitle: params?.getParams?.menuSectionTitle || "",
         menuSectionSubtitle: params?.getParams?.menuSectionSubtitle || "",       
+        backgroundMenu: params?.getParams?.backgroundMenu || "",       
     });
     return (
         <>

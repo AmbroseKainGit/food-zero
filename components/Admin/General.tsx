@@ -10,6 +10,7 @@ export const General = ({ handleSave, params }: props) => {
     const { handleInputChange, values } = useForm<IGeneral>({
         address: params?.getParams?.address || "",
         email: params?.getParams?.email || "",
+        backgroundCover: params?.getParams?.backgroundCover || "",
         facebook: params?.getParams?.facebook || "",
         instagram: params?.getParams?.instagram || "",
         phone: params?.getParams?.phone || "",

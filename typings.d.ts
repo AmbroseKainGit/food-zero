@@ -106,6 +106,7 @@ export interface IHome {
 }
 
 export interface IGeneral {
+  backgroundCover: string
   address: string
   email: string
   facebook: string
@@ -118,4 +119,22 @@ export interface IGeneral {
 export interface IMenu {
   menuSectionSubtitle: string
   menuSectionTitle: string
+  backgroundMenu: string
+}
+
+export interface IContact {
+  contactSectionSubtitle: string
+  contactSectionTitle: string
+  backgroundContact: string
+}
+
+export interface IBlog {
+  blogDetailCommentTitle: string
+  blogSectionSubtitle: string
+  blogSectionTitle: string
+  backgroundBlog: string
+  backgroundBlogDetail: string
+}
+export interface IAbout {
+  backgroundAbout: string
 }
