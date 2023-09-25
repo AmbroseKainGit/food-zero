@@ -1,8 +1,8 @@
 import { Category } from "@/typings"
-import { url } from "inspector"
-import Image from "next/image"
 import { GrapeSvg } from "../Svg/GrapeSvg"
 import { AvocadoSvg } from "../Svg/AvocadoSvg"
+
+
 interface props {
     data: Category
     loopIndex: number
@@ -15,7 +15,6 @@ export const Menu = ({ data, loopIndex }: props) => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
     }
-
     const isEven = loopIndex % 2 === 0 || loopIndex === 0;
     const classEven = isEven ? '' : 'menu__container__odd';
 

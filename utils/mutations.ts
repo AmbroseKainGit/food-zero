@@ -23,6 +23,8 @@ export const updateParamsMutation = gql`
       blogSectionTitle
       contactSectionSubtitle
       contactSectionTitle
+      contactCover1
+      contactCover2
       email
       facebook
       homeSection1Image1

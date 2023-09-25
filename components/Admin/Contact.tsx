@@ -11,7 +11,9 @@ export const Contact = ({ handleSave, params }: props) => {
   const { handleInputChange, values, handleChange } = useForm<IContact>({
     contactSectionTitle: params?.getParams?.contactSectionTitle || "",
     contactSectionSubtitle: params?.getParams?.contactSectionSubtitle || "",
-    backgroundContact: params?.getParams?.backgroundContact || ""
+    backgroundContact: params?.getParams?.backgroundContact || "",
+    contactCover1: params?.getParams?.contactCover1 || "",
+    contactCover2: params?.getParams?.contactCover2 || ""
   });
   return (
     <>
