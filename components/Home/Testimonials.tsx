@@ -1,10 +1,12 @@
 'use client'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import data from "@/data/fakeDataComments.json";
 import { TestimonialCard } from "./components/TestimonialCard";
 import { Carousel } from "@trendyol-js/react-carousel";
 
 export const Testimonials = () => {
+
+
   return (
     <div className="testimonials-inner-container">
       <h3>Rate & Relate: Share Your Restaurant Experience!</h3>
@@ -12,6 +14,7 @@ export const Testimonials = () => {
         show={2.5}
         slide={2}
         swiping={true}
+        responsive={true}
         className="testiomnials-container-home"
       >
         {data.map(({ name, id, stars, comment }) => {

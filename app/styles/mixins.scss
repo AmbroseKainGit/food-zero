@@ -8,6 +8,9 @@
     @media (max-width: 1440px) {
         padding: 0 $BP;
     }
+    @media (max-width: 1280px) {
+        padding: 0 $MA;
+    }
 }
 
 @mixin inner_container($width:100%, $max-width:$max-width, $display:flex, $flex-directiom: column, $gap: 5rem, $background-color: transparent, $PXY: 0 0 ,$color: #fff ){
@@ -21,6 +24,9 @@
     gap: $gap;
     @media (max-width: 1440px) {
         max-width: $med-width;
+    }    
+    @media (max-width: 1280px) {
+        max-width: $sma-width;
     }    
 }
 
