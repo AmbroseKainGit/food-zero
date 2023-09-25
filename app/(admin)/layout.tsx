@@ -11,8 +11,10 @@ const auth = getAuth(firebase_app);
 export default function Layout({ children }: Props) {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
+        const token = await user?.getIdToken();
+        localStorage.setItem("token", token);
         dispatch(
           setUser({
             email: user?.email,
@@ -21,9 +23,14 @@ export default function Layout({ children }: Props) {
         );
         return;
       }
+      localStorage.removeItem("token");
       dispatch(setUser(null));
     });
     return () => unsubscribe();
   }, [dispatch]);
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+    </>
+  );
 }

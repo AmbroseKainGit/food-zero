@@ -1,7 +1,8 @@
 /* Instruments */
-import { authSlice, menuSlice } from '../slices'
+import { authSlice, menuSlice, paramsSlice } from '../slices'
 
 export const reducer = {
   auth: authSlice.reducer,
-  menu: menuSlice.reducer
+  menu: menuSlice.reducer,
+  params: paramsSlice.reducer,
 }

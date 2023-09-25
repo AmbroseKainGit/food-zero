@@ -1,58 +1,8 @@
 import { gql } from '@apollo/client'
-export const queryCategories = gql`
-  query Categories {
-    categories {
-      disabled
-      description
-      image
-    }
-  }
-`
-export const queryMenu = gql`
-  query Categories {
-    categories {
-      id
-      name
-      description
-      image
-      products {
-        name
-        description
-        disabled
-        id
-        image
-        price
-        priority
-      }
-    }
-  }
-`
-export const queryStaff = gql`
-  query Staff {
-    staff {
-      id
-      name
-      description
-      image
-      role
-      disabled
-    }
-  }
-`
-export const queryGetAllMeatProcess = gql`
-  query GetAllMeatProcess {
-    getAllMeatProcess {
-      id
-      image
-      name
-      description
-      order
-    }
-  }
-`
-export const queryGetParams = gql`
-  query GetParams {
-    getParams {
+
+export const updateParamsMutation = gql`
+  mutation UpdateParam($updateParamInput1: UpdateParamInput!) {
+    updateParam(input: $updateParamInput1) {
       address
       aboutSectionTitle
       aboutSectionParagraph

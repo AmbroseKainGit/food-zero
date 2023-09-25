@@ -8,31 +8,32 @@ import { VideoBanner } from "@/components/VideoBanner/VideoBanner";
 import { Reservation } from "@/components/General/Reservation";
 import { StaffQuery, MeatProcessQuery } from "@/typings"
 import { Process } from "@/components/Process/Process";
+import { useAppSelector } from "@/hooks/redux";
+import { selectParams } from "@/lib/redux";
 export default function Menu() {
-  const title = 'Our Story';
-  const image = '/static/about_1.webp';
-  const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet. Turpis egestas ultricies purus auctor tincidunt lacus nunc. ';
   const { loading, error, data } = useQuery<StaffQuery>(queryStaff);
   const { loading: loadingMP, error: errorMP, data: dataMeatProcess } = useQuery<MeatProcessQuery>(queryGetAllMeatProcess);
+  const { data: params } = useAppSelector(selectParams);
+ 
   return (
     <>
       <HeaderComponent
-        title={'Who We Are'}
-        titleFontSize={14.8}
-        description={'The most important thing for us is to give you the comfortable dining experience'}
+        title={params?.getParams.aboutHeaderSectionTitle || ''}
+        titleFontSize={11.8}
+        description={params?.getParams.aboutHeaderSectionParagraph || ''}
         descriptionFontSize={3.2}
         ubication={'right'}
         textAling={'left'}
         textContainerWidth={55}
-        background={'/static/about_cover.webp'}
+        background={params?.getParams.aboutHeaderSectionImage}
       />
-      <About title={title} description={description} image={image} />
+      <About title={params?.getParams.aboutSectionTitle || ''} description={params?.getParams.aboutSectionParagraph || ''} image={params?.getParams.backgroundAbout || '/static/about_cover.webp'} />
       {data && data.staff.map((staffMember, index) => {
         return (
           <Staff data={staffMember} key={index} loopIndex={index} />
         )
       })}
-      <VideoBanner videoId="n8YwWZy3bcM" title="It looks delicious" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+      <VideoBanner videoId={params?.getParams.aboutBannerVideoId || ''} title={params?.getParams.aboutBannerVideoTitle || ''} description={params?.getParams.aboutBannerVideoParagraph || ''} />
       {dataMeatProcess && dataMeatProcess.getAllMeatProcess.map((meatProcess, index) => {
         return (
           <Process data={meatProcess} key={index} loopIndex={index} processTitle="Sophisticated Process" />

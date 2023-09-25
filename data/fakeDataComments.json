@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
+    "comment": "The food was delicious, but the service could have been faster.",
     "name": "John Doe",
-    "stars": 4,
-    "comment": "The food was delicious, but the service could have been faster."
+    "stars": 4
   },
   {
     "id": 2,

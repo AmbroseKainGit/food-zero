@@ -2,21 +2,30 @@
 import { Contact } from "@/components/Contact/Contact";
 import { HeaderComponent } from "@/components/General/HeaderComponent";
 import { Reservation } from "@/components/General/Reservation";
+import { useAppSelector } from "@/hooks/redux";
+import { selectParams } from "@/lib/redux";
 export default function Menu() {
+  const { data: params } = useAppSelector(selectParams);
   return (
     <>
       <HeaderComponent
-        title={'Get in touch'}
+        title={params?.getParams.contactSectionTitle || ''}
         titleFontSize={14.8}
-        description={'The freshest ingredients for you every day'}
+        description={params?.getParams.contactSectionSubtitle || ''}
         descriptionFontSize={3.2}
         ubication={'left'}
         showOpenTime={true}
         textAling={'left'}
         textContainerWidth={55}
-        background={'/static/contact_cover.webp'}
+        background={params?.getParams.backgroundContact}
       />
-      <Contact email="info@foodzero.com" phone="+86 852 346 000" address="1959 Sepulveda Blvd. Culver City, CA, 90230" />
+      <Contact
+        email={params?.getParams.email || 'jondoe@email.com'}
+        phone={params?.getParams.phone || '+ 01 123 456 789'}
+        address={params?.getParams.address || 'New York, NY 10012, US'}
+        cover2={params?.getParams.contactCover2 || '/static/contact_2.webp'}
+        cover1={params?.getParams.contactCover1 || '/static/contact_1.webp'}
+      />
       <div className="calendar-container-main">
         <Reservation />
       </div>
