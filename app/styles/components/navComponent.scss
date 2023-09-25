@@ -15,6 +15,9 @@
   @media(max-width:1280px){
     padding:$LG $MA;
   }
+  @media(max-width:740px){
+    padding:0 $MA;
+  }
   &__left {
     display: flex;
     align-items: center;
@@ -25,6 +28,14 @@
     }
     &__button {
       cursor: pointer;
+    }
+    &__logo {
+      
+      img{
+        @media(max-width:740px){
+          width: 150px;
+        }
+      }
     }
   }
   &__right {
