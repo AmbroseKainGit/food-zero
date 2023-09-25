@@ -12,6 +12,10 @@
       padding-left: $BP;
       padding-right: $BP;
     }
+    @media(max-width:1280px){
+      padding-left: $MA;
+      padding-right: $MA;
+    }
     &__logo {
       width: 26%;
     }
@@ -92,6 +96,14 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    @media(max-width:1440px){
+      padding-left: $BP;
+      padding-right: $BP;
+    }
+    @media(max-width:1280px){
+      padding-left: $MA;
+      padding-right: $MA;
+    }
     &__left {
       font-family: var(--lato);
       font-size: 2.4rem;
