@@ -5,8 +5,11 @@ import {
     AiOutlineTwitter,
     AiOutlineYoutube
 } from "react-icons/ai";
+import { useAppSelector } from "@/hooks/redux";
+import { selectParams } from "@/lib/redux";
 
 export const Footer = () => {
+    const { data: params } = useAppSelector(selectParams);
     return (
         <footer className='footer'>
             <div className='footer__up'>
@@ -19,19 +22,18 @@ export const Footer = () => {
                     />
                 </div>
                 <div className='footer__up__contact'>
-                    <div className='footer__up__contact__title'>Contact</div>
-                    <div className='text footer__up__contact__phone'>+1+86 852 346 000</div>
-                    <div className='text footer__up__contact__email'>info@foodzero.com</div>
-                    <div className='text footer__up__contact__address1'>1959 Sepulveda Blvd.</div>
-                    <div className='text footer__up__contact__address2'>Culver City, CA, 90230</div>
+                    <div className='footer__up__contact__title'>Contacto</div>
+                    <div className='text footer__up__contact__phone'>{params?.getParams.phone || '+01 123 456 780'}</div>
+                    <div className='text footer__up__contact__email'>{params?.getParams.email || 'jondoe@email.com'}</div>
+                    <div className='text footer__up__contact__address1'>1{params?.getParams.address || 'New York, NY 10012, US'}</div>                    
                 </div>
                 <div className='footer__up__subscribe'>
-                    <div className='footer__up__subscribe__title'>Never Miss a Recipe</div>
+                    <div className='footer__up__subscribe__title'>No te pierdas ninguna receta</div>
                     <div className='footer__up__subscribe__form'>
-                        <input type="text" placeholder='Email Address' />
-                        <button>Subscribe</button>
+                        <input type="text" placeholder='Email' />
+                        <button>Subscribete</button>
                     </div>
-                    <div className='footer__up__subscribe__text'>Join our subscribers and get best recipe delivered each week!</div>
+                    <div className='footer__up__subscribe__text'>¡Únete a nuestros suscriptores y recibe la mejor receta cada semana!</div>
 
                 </div>
             </div>
@@ -40,10 +42,10 @@ export const Footer = () => {
                     © 2023 Zero Inc. All rights Reserved
                 </div>
                 <div className='footer__down__right'>
-                    <AiOutlineInstagram />
-                    <AiOutlineTwitter />
-                    <AiOutlineFacebook />
-                    <AiOutlineYoutube />
+                    <a target="_blank" href={params?.getParams.instagram || ''}><AiOutlineInstagram /></a>
+                    <a target="_blank" href={params?.getParams.twitter || ''}><AiOutlineTwitter /></a>
+                    <a target="_blank" href={params?.getParams.facebook || ''}><AiOutlineFacebook /></a>
+                    <a target="_blank" href={params?.getParams.youtube || ''}><AiOutlineYoutube /></a>          
                 </div>
             </div>
         </footer>

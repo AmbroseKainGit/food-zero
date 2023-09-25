@@ -25,7 +25,7 @@ export default function Menu() {
         ubication={'right'}
         textAling={'left'}
         textContainerWidth={55}
-        background={params?.getParams.aboutHeaderSectionImage || '/static/about_cover.webp'}
+        background={params?.getParams.aboutHeaderSectionImage}
       />
       <About title={params?.getParams.aboutSectionTitle || ''} description={params?.getParams.aboutSectionParagraph || ''} image={params?.getParams.backgroundAbout || '/static/about_cover.webp'} />
       {data && data.staff.map((staffMember, index) => {

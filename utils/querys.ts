@@ -73,6 +73,8 @@ export const queryGetParams = gql`
       blogSectionTitle
       contactSectionSubtitle
       contactSectionTitle
+      contactCover1
+      contactCover2
       email
       facebook
       homeSection1Images

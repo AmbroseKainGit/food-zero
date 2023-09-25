@@ -3,9 +3,12 @@ import React from "react";
 import Image from "next/image";
 import { useAppDispatch } from "@/hooks/redux";
 import { changeVisibilityMenu } from "@/lib/redux";
+import { useAppSelector } from "@/hooks/redux";
+import { selectParams } from "@/lib/redux";
 
 export const NavComponent = () => {
   const dispatch = useAppDispatch();
+  const { data: params } = useAppSelector(selectParams);
   return (
     <nav className="nav-header">
       <div className="nav-header__left">
@@ -30,9 +33,9 @@ export const NavComponent = () => {
         </div>
       </div>
       <div className="nav-header__right">
-        <div className="nav-header__right__phone">+86 852 346 000</div>
+        <div className="nav-header__right__phone">{params?.getParams.phone || '+01 123 456 780'}</div>
         <div className="nav-header__right__button">
-          <button>Reservations</button>
+          <button>Reservaciones</button>
         </div>
       </div>
     </nav>

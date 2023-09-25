@@ -11,6 +11,8 @@ export const Contact = ({ handleSave, params }: props) => {
         contactSectionTitle: params?.getParams?.contactSectionTitle || "",
         contactSectionSubtitle: params?.getParams?.contactSectionSubtitle || "",
         backgroundContact: params?.getParams?.backgroundContact || "",
+        contactCover1: params?.getParams?.contactCover1 || "",
+        contactCover2: params?.getParams?.contactCover2 || "",
     });
     return (
         <>

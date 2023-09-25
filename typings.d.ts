@@ -63,6 +63,8 @@ export interface Params {
   blogSectionTitle: string
   contactSectionSubtitle: string
   contactSectionTitle: string
+  contactCover1: string
+  contactCover2: string
   email: string
   facebook: string
   homeSection1Images: []
@@ -134,6 +136,8 @@ export interface IContact {
   contactSectionSubtitle: string
   contactSectionTitle: string
   backgroundContact: string
+  contactCover1: string
+  contactCover2: string
 }
 
 export interface IBlog {
