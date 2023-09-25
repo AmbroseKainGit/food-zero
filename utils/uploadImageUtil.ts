@@ -1,7 +1,7 @@
 import { storage } from "@/lib/firebase/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
-export const uploadImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
+export const uploadImageUtil = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
     if (file === null) return;
