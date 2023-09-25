@@ -8,6 +8,7 @@ interface props {
   params?: ParamsQuery | null;
 }
 export const Contact = ({ handleSave, params }: props) => {
+  const images = ["backgroundContact", "contactCover1", "contactCover2"];
   const { handleInputChange, values, handleChange } = useForm<IContact>({
     contactSectionTitle: params?.getParams?.contactSectionTitle || "",
     contactSectionSubtitle: params?.getParams?.contactSectionSubtitle || "",
@@ -29,7 +30,7 @@ export const Contact = ({ handleSave, params }: props) => {
             <label htmlFor={key}>
               {key.charAt(0).toUpperCase() + key.slice(1)}
             </label>
-            {key === "backgroundContact" ? (
+            {images.includes(key) ? (
               <UploadFile
                 url={value}
                 name={key}
