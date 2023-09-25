@@ -1,14 +1,26 @@
 "use client";
 import { useForm } from "@/hooks/useForm";
 import { IHome, ParamsQuery } from "@/typings";
+import UploadFile from "../General/UploadFile";
 
 interface props {
   handleSave: (id: string | undefined, values: any) => void;
   params?: ParamsQuery | null;
 }
 export const Home = ({ handleSave, params }: props) => {
-  const { handleInputChange, values } = useForm<IHome>({
-    homeSection1Images: params?.getParams.homeSection1Images || [],
+  const images = [
+    "homeSection1Image1",
+    "homeSection1Image2",
+    "homeSection3Image1",
+    "homeSection3Image2",
+    "homeSection3Image3"
+  ];
+  const { handleInputChange, values, handleChange } = useForm<IHome>({
+    homeSection1Image1: params?.getParams.homeSection1Image1 || "",
+    homeSection1Image2: params?.getParams.homeSection1Image2 || "",
+    homeSection3Image1: params?.getParams.homeSection3Image1 || "",
+    homeSection3Image2: params?.getParams.homeSection3Image2 || "",
+    homeSection3Image3: params?.getParams.homeSection3Image3 || "",
     homeSection1ImagesText1: params?.getParams.homeSection1ImagesText1 || "",
     homeSection1ImagesText2: params?.getParams.homeSection1ImagesText2 || "",
     homeSection1Paragraph1: params?.getParams.homeSection1Paragraph1 || "",
@@ -22,7 +34,6 @@ export const Home = ({ handleSave, params }: props) => {
     homeSectionMenuTitle: params?.getParams.homeSectionMenuTitle || "",
     titleCommentsHome: params?.getParams.titleCommentsHome || "",
     homeSectionMenuSubtitle: params?.getParams.homeSectionMenuSubtitle || "",
-    homeSection3Images: params?.getParams.homeSection3Images || [],
     homeSection3Paragraph: params?.getParams.homeSection3Paragraph || ""
   });
   return (
@@ -36,16 +47,27 @@ export const Home = ({ handleSave, params }: props) => {
       <div className="admin-general-container">
         {Object.entries(values).map(([key, value]) => (
           <div key={key} className="admin-general-container__card">
-            <label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
-            <input
-              type="text"
-              name={key}
-              value={value}
-              onChange={handleInputChange}
-            />
+            <label htmlFor={key}>
+              {key.charAt(0).toUpperCase() + key.slice(1)}
+            </label>
+            {images.includes(key) ? (
+              <UploadFile
+                url={value}
+                name={key}
+                key={key}
+                onChange={handleChange}
+              />
+            ) : (
+              <input
+                type="text"
+                name={key}
+                value={value}
+                onChange={handleInputChange}
+              />
+            )}
           </div>
-        ))}       
+        ))}
       </div>
     </>
-  )
+  );
 };

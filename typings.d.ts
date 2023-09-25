@@ -65,7 +65,6 @@ export interface Params {
   contactSectionTitle: string
   email: string
   facebook: string
-  homeSection1Images: []
   homeSection1ImagesText1: string
   homeSection1ImagesText2: string
   homeSection1Paragraph1: string
@@ -75,7 +74,6 @@ export interface Params {
   homeSection2ButtonText: string
   homeSection2Subtitle: string
   homeSection2Title: string
-  homeSection3Images: []
   homeSection3Paragraph: string
   homeSection3Title: string
   homeSectionMenuSubtitle: string
@@ -88,6 +86,11 @@ export interface Params {
   titleCommentsHome: string
   twitter: string
   youtube: string
+  homeSection3Image1: string,
+  homeSection3Image2: string,
+  homeSection3Image3: string,
+  homeSection1Image1: string,
+  homeSection1Image2: string,
 }
 
 export interface ParamsQuery {
@@ -100,7 +103,8 @@ export interface IHome {
   homeSection1Subtitle: string
   homeSection1Paragraph1: string
   homeSection1Paragraph2: string
-  homeSection1Images: string[]
+  homeSection1Image1: String,
+  homeSection1Image2: String,
   homeSection1ImagesText1: string
   homeSection1ImagesText2: string
   homeSection2Title: string
@@ -108,7 +112,9 @@ export interface IHome {
   homeSection2ButtonText: string
   homeSection3Title: string
   homeSection3Paragraph: string
-  homeSection3Images: string[]
+  homeSection3Image1: String,
+  homeSection3Image2: String,
+  homeSection3Image3: String,
   homeSectionMenuTitle: string
   homeSectionMenuSubtitle: string
 }

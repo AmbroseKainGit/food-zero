@@ -25,7 +25,11 @@ export const updateParamsMutation = gql`
       contactSectionTitle
       email
       facebook
-      homeSection1Images
+      homeSection1Image1
+      homeSection1Image2
+      homeSection3Image1
+      homeSection3Image2
+      homeSection3Image3
       homeSection1ImagesText1
       homeSection1ImagesText2
       homeSection1Paragraph1
@@ -35,7 +39,6 @@ export const updateParamsMutation = gql`
       homeSection2ButtonText
       homeSection2Subtitle
       homeSection2Title
-      homeSection3Images
       homeSection3Paragraph
       homeSection3Title
       homeSectionMenuSubtitle

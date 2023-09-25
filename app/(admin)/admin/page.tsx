@@ -40,7 +40,7 @@ function Page() {
       fetchDataSuccess({
         data: data!,
         loading,
-        error: error
+        error: error?.cause
       })
     );
   }, [data, loading, error, dispatch]);
