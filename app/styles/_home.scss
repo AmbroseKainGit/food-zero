@@ -645,10 +645,10 @@
     width: 65vw;
   }
   @media (max-width: 740px) {
-   height: 31rem;
+    height: 31rem;
   }
-  &::after{
-    content: '';
+  &::after {
+    content: "";
     position: absolute;
     background-color: rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -667,7 +667,7 @@
       font-size: 4.8rem;
       font-weight: 700;
       line-height: 6.4rem; /* 133.333% */
-      @media(max-width: 740px){
+      @media (max-width: 740px) {
         font-size: 3rem;
       }
     }
@@ -745,6 +745,20 @@
           font-size: 3rem;
           line-height: 115%;
         }
+      }
+    }
+  }
+}
+
+///BLOG PAGE
+///
+///
+
+.blog-container-page {
+  .card-blog-container {
+    img {
+      @media (max-width: 1000px) {
+        width: 100%;
       }
     }
   }
