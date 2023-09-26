@@ -44,7 +44,7 @@
       height: auto;
     }
     @media (max-width: 740px) {
-      top:60.5rem;
+      top: 60.5rem;
       width: 145px;
     }
   }
@@ -52,14 +52,14 @@
     position: absolute;
     top: 116.5rem; // Adjust this value as needed
     right: 58.9rem;
-    @media (max-width: 10000px) {
+    @media (max-width: 1000px) {
       top: 92.5rem;
       right: 25rem;
       width: 180px;
       height: auto;
     }
     @media (max-width: 740px) {
-      top:75.5rem;
+      top: 75.5rem;
       width: 145px;
       right: 3rem;
     }
@@ -76,7 +76,7 @@
     }
 
     @media (max-width: 740px) {
-      top:90.5rem;
+      top: 90.5rem;
       width: 145px;
       right: 3rem;
     }
@@ -86,7 +86,7 @@
 .main-header-container {
   @include main_container($main_background: $main);
   @media (max-width: 740px) {
-   padding: 0;
+    padding: 0;
   }
 }
 
@@ -96,8 +96,8 @@
     max-width: 105.7rem;
   }
   @media (max-width: 740px) {
-   padding-left: 30px;
-   gap: 1rem;
+    padding-left: 30px;
+    gap: 1rem;
   }
   h1 {
     font-size: 14.8rem;
@@ -145,11 +145,11 @@
     /* Rotate from top left corner (not default) */
     transform-origin: left;
     transform: rotate(90deg);
-    @media(max-width: 740px){
-    overflow: hidden;
-    width: 290px;
-    top: 5.6rem;
-    white-space: nowrap;
+    @media (max-width: 740px) {
+      overflow: hidden;
+      width: 290px;
+      top: 5.6rem;
+      white-space: nowrap;
     }
   }
 }
@@ -193,7 +193,7 @@
       font-size: 6.8rem;
       font-weight: 700;
       line-height: 8.4rem;
-      @media(max-width: 740px){
+      @media (max-width: 740px) {
         font-size: 5rem;
         line-height: 110%;
         padding-left: 30px;
@@ -360,6 +360,9 @@
         width: 355px;
         height: auto;
       }
+      @media (max-width: 740px) {
+        display: none;
+      }
     }
     img:nth-child(4) {
       position: absolute;
@@ -460,6 +463,9 @@
       height: auto;
       justify-content: flex-start;
     }
+    @media (max-width: 740px) {
+      gap: 4rem;
+    }
   }
 }
 
@@ -475,6 +481,9 @@
     justify-content: flex-start;
     height: 105rem;
   }
+  @media (max-width: 740px) {
+    height: 70rem;
+  }
 
   img {
     margin-bottom: 6.8rem;
@@ -482,6 +491,9 @@
       width: 560px;
       height: auto;
       margin-bottom: 4rem;
+    }
+    @media (max-width: 740px) {
+      width: 70vw;
     }
   }
 
@@ -492,6 +504,9 @@
     @media (max-width: 1440px) {
       padding: 0 4rem;
     }
+    @media (max-width: 740px) {
+      padding: 0;
+    }
 
     h3 {
       font-size: 4.8rem;
@@ -499,6 +514,11 @@
       line-height: 6.4rem; /* 133.333% */
       border-bottom: 4px dotted black;
       margin-bottom: 1.8rem;
+
+      @media (max-width: 1440px) {
+        font-size: 3rem;
+        line-height: 115%;
+      }
     }
 
     p {
@@ -554,6 +574,12 @@
       padding-top: 10rem;
       padding-bottom: 10rem;
     }
+    @media (max-width: 740px) {
+      height: auto;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+      gap: 5rem;
+    }
 
     .information-calltomenu-container {
       width: 100%;
@@ -561,7 +587,6 @@
       flex-direction: column;
       align-items: center;
       gap: 1.8rem;
-
       h2 {
         font-size: 10.8rem;
         font-weight: 700;
@@ -572,6 +597,9 @@
         @media (max-width: 1000px) {
           font-size: 6.3rem;
           line-height: 110%;
+        }
+        @media (max-width: 740px) {
+          font-size: 5rem;
         }
       }
 
@@ -607,6 +635,7 @@
 }
 
 .calltomenu-card-container {
+  position: relative;
   width: 100%;
   height: 71rem;
   padding-top: 4.8rem;
@@ -614,6 +643,18 @@
   padding-right: 4rem;
   @media (max-width: 1000px) {
     width: 65vw;
+  }
+  @media (max-width: 740px) {
+   height: 31rem;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
   }
 
   .title-calltomenu {
@@ -626,6 +667,9 @@
       font-size: 4.8rem;
       font-weight: 700;
       line-height: 6.4rem; /* 133.333% */
+      @media(max-width: 740px){
+        font-size: 3rem;
+      }
     }
   }
 }
@@ -655,6 +699,10 @@
       line-height: 12rem;
       @media (max-width: 1440px) {
         font-size: 7rem;
+        line-height: 115%;
+      }
+      @media (max-width: 740px) {
+        font-size: 5rem;
         line-height: 115%;
       }
     }

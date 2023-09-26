@@ -14,11 +14,14 @@ export const Testimonials = () => {
     const resizeObserver = new ResizeObserver((entries) => {
       const newWidth = entries[0]?.contentRect.width;
       setWidth(newWidth);
-      if (newWidth <= 1010) {
-        setCarouselShow(1.5);
+      if (newWidth <= 740) {
+        setCarouselShow(1);  // Show 1 slide
+        setCarouselSlide(1);
+      } else if (newWidth <= 1010) {
+        setCarouselShow(1.5); // Show 1.5 slides
         setCarouselSlide(1);
       } else {
-        setCarouselShow(2.5);
+        setCarouselShow(2.5); // Show 2.5 slides
         setCarouselSlide(2);
       }
     });
