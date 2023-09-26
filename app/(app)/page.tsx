@@ -8,6 +8,40 @@ import { BlogSection } from "@/components/Home/BlogSection";
 import { Reservation } from "@/components/General/Reservation";
 import { CallToMenu } from "@/components/Home/CallToMenu";
 import { Testimonials } from "@/components/Home/Testimonials";
+
+const fetchData = async () => {
+  try {
+    const response = await fetch("https://food-zero-api.onrender.com/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Add any other headers if required (e.g., authorization token)
+      },
+      body: JSON.stringify({
+        query: `
+          query FoodSpecs {
+            foodSpecs {
+              id
+              image
+              title
+              content
+            }
+          }
+        `
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const {data:{foodSpecs}} = await response.json();
+   return foodSpecs;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 export default function Landing() {
  
   return (
