@@ -1,8 +1,10 @@
 .footer {
   background-color: $main;
   color: $common-white;
-  display: flex;
-  flex-direction: column;
+  @media(max-width:740px){
+    display: flex;
+    flex-direction: column;
+  }
   &__up {
     padding: $XL;
     display: flex;
@@ -51,6 +53,9 @@
       }
 
       &__address1 {
+        @media(max-width:1440px){
+          width: 25rem;
+        }
         @media (max-width: 1280px) {
           width: 183px;
         }

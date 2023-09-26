@@ -7,6 +7,20 @@
   padding: 0rem $XL 11.7rem $XL;
   gap: 12.1rem;
   position: relative;
+  @media (max-width: 1440px) {
+    padding: 0 $BP;
+    margin-bottom: 15rem;
+  }
+  @media (max-width: 1280px) {
+    padding: 0 $MA;
+  }
+  @media (max-width: 1000px) {
+    gap: 4rem;
+    flex-direction: column;
+  }
+  @media (max-width: 740px) {
+  margin-bottom: 9rem;
+  }
 }
 .staff__container__odd {
   display: flex;
@@ -19,15 +33,48 @@
   position: relative;
   gap: 12.1rem;
   margin-top: -35%;
+  @media (max-width: 1440px) {
+    margin-top: 10rem;
+    padding-right: $BP;
+    padding-left: $BP;
+  }
+  @media (max-width: 1280px) {
+    padding-right: $MA;
+    padding-left: $MA;
+  }
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    gap: 4rem;
+  }
 }
 .staff__container__data {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2.4rem;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+  @media (max-width: 740px) {
+    gap: 0.5rem;
+  }
+  img {
+    @media (max-width: 1440px) {
+      height: 57rem;
+      object-fit: cover;
+    }
+    @media (max-width: 704px) {
+      height: 40rem;
+      width: 100%;
+    }
+  }
   &__role {
     font-size: 6.8rem;
     line-height: 8.4rem;
+    @media (max-width: 740px) {
+    font-size: 4rem;
+    line-height: 110%;
+    }
   }
   &__name {
     font-family: var(--lato);
@@ -43,4 +90,11 @@
   text-align: left;
   color: $grey-main;
   padding-top: 9.5%;
+  @media (max-width: 1440px) {
+    padding-top: 25rem;
+  }
+  @media (max-width: 1000px) {
+    padding-top: 0;
+    width: 100%;
+  }
 }
