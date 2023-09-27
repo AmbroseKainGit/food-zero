@@ -43,6 +43,9 @@
        width: 100%;
        padding-left: 10px;
       }
+      @media(max-width:740px){
+       padding-left: 0;
+      }
     }
   }
   .open__time {
@@ -50,5 +53,14 @@
     bottom: 0;
     right: 0;
     padding: 0 $XL $XL 0;
+    @media(max-width: 1000px){
+    right: unset;
+
+    }
+    @media(max-width: 740px){
+ padding: 0;
+ padding-bottom: 20px;
+
+    }
   }
 }
