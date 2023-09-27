@@ -8,6 +8,8 @@ import { ParamsQuery } from "@/typings";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/hooks/redux";
 import { fetchDataSuccess } from "@/lib/redux";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function DashboardLayout({
   children // will be a page or nested layout
@@ -25,13 +27,14 @@ export default function DashboardLayout({
       })
     );
   }, [data, loading, error, dispatch]);
-  
+
   return (
     <main>
       <Cover />
       <NavComponent />
       {children}
       <Footer />
+      <ToastContainer/>
     </main>
   );
 }
