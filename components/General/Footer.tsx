@@ -7,6 +7,7 @@ import {
 } from "react-icons/ai";
 import { useAppSelector } from "@/hooks/redux";
 import { selectParams } from "@/lib/redux";
+import Link from 'next/link';
 import { ApolloError, useMutation } from '@apollo/client';
 import { createContactMutation } from "../../utils/mutations";
 import { useState } from 'react';
@@ -80,14 +81,14 @@ export const Footer = () => {
     return (
         <footer className='footer'>
             <div className='footer__up'>
-                <div className='footer__up__logo'>
+                <Link className='footer__up__logo' href={'/'}>
                     <Image
                         src="/images/logo_footer.svg"
                         width={188}
                         height={168}
                         alt="Food zero logo"
                     />
-                </div>
+                </Link>
                 <div className='footer__up__contact'>
                     <div className='footer__up__contact__title'>Contacto</div>
                     <div className='text footer__up__contact__phone'>{params?.getParams.phone || '+01 123 456 780'}</div>
