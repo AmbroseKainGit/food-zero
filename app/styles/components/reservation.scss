@@ -7,18 +7,20 @@
     align-items: center;
     justify-content: center;
     @media (max-width: 1440px) {
-      height: 70rem;
+      height: auto;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
     }
     .reservation-title {
       margin-bottom: 1.8rem;
       h2 {
         font-size: 10.8rem;
-        font-weight: 700;
+        font-weight: 740;
         line-height: 12rem;
         @media (max-width: 1440px) {
           font-size: 7rem;
         }
-        @media (max-width: 700px) {
+        @media (max-width: 740px) {
           font-size: 5rem;
           line-height: 110%;
         }
@@ -124,14 +126,14 @@
                 ),
                 linear-gradient(135deg, gray 50%, transparent 50%),
                 linear-gradient(to right, #ccc, #ccc);
-              background-position: calc(100% - 34px) calc(1em + 24px),
-                calc(100% - 15px) calc(1em + 24px), calc(100% - 5em) 0.5em;
+              background-position: calc(100% - 34px) calc(1em + 15px),
+                calc(100% - 15px) calc(1em + 15px), calc(100% - 3em) 0em;
               background-size: 20px 20px, 20px 20px, 1px 6em;
               background-repeat: no-repeat;
               @media (max-width: 1440px) {
                 margin-bottom: 7rem;
-                background-position: calc(100% - 34px) calc(1em + 12px),
-                  calc(100% - 15px) calc(1em + 12px), calc(100% - 5em) 0.5em;
+                background-position: calc(100% - 34px) calc(1em + 0px),
+                  calc(100% - 15px) calc(1em + 0px), calc(100% - 3em) 0.1em;
               }
             }
           }
@@ -155,12 +157,18 @@
     height: 9.6rem;
     display: flex;
     gap: 4.6rem;
-
+@media(max-width:740px){
+  flex-direction: column;
+  height: auto;
+}
     input {
       width: 100%;
       border: none;
       padding-left: 40px;
       font-size: 2.7rem;
+      @media(max-width:740px){
+        height: 9.6rem;
+      }
 
       &::placeholder {
         font-family: var(--lato);
