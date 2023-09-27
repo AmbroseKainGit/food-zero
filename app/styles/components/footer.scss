@@ -169,9 +169,16 @@
       padding-left: $MA;
       padding-right: $MA;
     }
+    @media (max-width: 740px) {
+     flex-direction: column-reverse;
+     gap: 1rem;
+    }
     &__left {
       font-family: var(--lato);
       font-size: 2.4rem;
+      @media (max-width: 740px) {
+       font-size: 2rem;
+       }
     }
     &__right {
       display: flex;
