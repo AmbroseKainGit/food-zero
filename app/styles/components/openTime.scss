@@ -12,9 +12,13 @@
     justify-content: space-between;
     padding-bottom: 4.5rem;
     border-bottom: 2px dotted $common-white;
+    @media(max-width:740px){
+      padding-bottom: 1rem;
+    }
     .title {
       font-family: var(--rufina);
     }
+
   }
   &__down {
     width: 100%;
@@ -25,6 +29,10 @@
     overflow-x: auto;
     overflow-y: hidden;
     gap: 17%;
+    @media(max-width:740px){
+      padding-top: 1rem;
+      gap: 10%;
+    }
     .schedule__item {
       min-width: 22%;
       display: flex;
