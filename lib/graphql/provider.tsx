@@ -8,7 +8,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-const queries = ["GetAllMeatProcess", "Staff", "GetParams", "Categories"];
+const queries = ["GetAllMeatProcess", "Staff", "GetParams", "Categories", "CreateContact"];
 
 const httpLink = createHttpLink({
   uri:

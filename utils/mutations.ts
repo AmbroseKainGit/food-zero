@@ -56,3 +56,11 @@ export const updateParamsMutation = gql`
     }
   }
 `
+export const createContactMutation = gql`
+  mutation CreateContact($createContactInput2: CreateContactInput!) {
+    createContact(input: $createContactInput2) {
+      email
+      id
+    }
+  }
+`
