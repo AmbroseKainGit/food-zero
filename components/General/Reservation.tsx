@@ -3,7 +3,8 @@ import { queryPutReservation } from "@/utils/querys";
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 export const Reservation = () => {
-  const [createReservation, { data, loading, error }] = useMutation(queryPutReservation);
+  const [createReservation, { data, loading, error }] =
+    useMutation(queryPutReservation);
   const [hidden, setHidden] = useState("hidden");
   const quantityOptions = [
     { value: 1, label: "1 Person" },
@@ -15,7 +16,7 @@ export const Reservation = () => {
     { value: 7, label: "7 Persons" },
     { value: 8, label: "8 Persons" },
     { value: 9, label: "9 Persons" },
-    { value: 10, label: "10 Persons" },
+    { value: 10, label: "10 Persons" }
   ];
 
   const handlePersonalDataShow = (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,7 +25,14 @@ export const Reservation = () => {
       setHidden("");
       return;
     }
-    createReservation({ variables: { input: formData } });
+    createReservation({
+      variables: {
+        createReservationInput2: {
+          ...formData,
+          numberOfPeople: parseInt(formData.numberOfPeople.toString())
+        }
+      }
+    });
     setFormData({
       date: "",
       email: "",
@@ -32,10 +40,8 @@ export const Reservation = () => {
       hour: "00:00",
       numberOfPeople: 0,
       phone: "",
-      surname: "",
+      surname: ""
     });
-    console.log(formData);
-    console.log('data',data);
   };
 
   // Form data
@@ -47,16 +53,14 @@ export const Reservation = () => {
     hour: "00:00",
     numberOfPeople: 0,
     phone: "",
-    surname: "",
+    surname: ""
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log(value);
-
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -64,11 +68,11 @@ export const Reservation = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
   };
 
-  if (loading) return 'Submitting...';
+  if (loading) return "Submitting...";
   if (error) return `Submission error! ${error.message}`;
 
   return (
@@ -132,7 +136,7 @@ export const Reservation = () => {
             <div className="form-field-reservation">
               <input
                 type="time"
-                name="time"
+                name="hour"
                 value={formData.hour}
                 onChange={handleInputChange}
                 placeholder="Select a time"
