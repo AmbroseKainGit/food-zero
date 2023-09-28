@@ -1,14 +1,15 @@
+"use client";
+import { useAppSelector } from "@/hooks/redux";
+import { selectParams } from "@/lib/redux";
 import Image from "next/image";
 import Link from "next/link";
 
 export const CallToAction = () => {
+  const { data: params } = useAppSelector(selectParams);
   return (
     <div className="call-container">
-      <h2>Our Menu</h2>
-      <p>
-        Indulge your taste buds and explore our exquisite menu. Join us and
-        savor the flavors of Food Zero today
-      </p>
+      <h2>{params?.getParams.homeSectionMenuTitle}</h2>
+      <p>{params?.getParams.homeSectionMenuSubtitle}</p>
       <Image
         src="/static/vegetation-bg.webp"
         width={880}
@@ -16,7 +17,9 @@ export const CallToAction = () => {
         alt="vegetation"
       />
 
-    <button><Link href={"/"}>View Menu</Link></button>
+      <button style={{ zIndex: 1 }}>
+        <Link href={"/menu"}>{params?.getParams.homeSection2ButtonText}</Link>
+      </button>
     </div>
   );
 };
