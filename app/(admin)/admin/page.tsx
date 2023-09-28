@@ -52,6 +52,7 @@ function Page() {
         activeModule={adminOption}
         toggleSidebar={toggleSidebar}
         handleMenuItemClick={handleMenuItemClick}
+        logout={logOut}
       />
       {params && (
         <AdminContent
