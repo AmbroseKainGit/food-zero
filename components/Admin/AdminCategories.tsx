@@ -25,12 +25,19 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
         const { name, value } = e.target;
         const newData = [...categoryData];
         newData[index][name] = value;
+        console.log(newData);
+        
         handleChange({ categoryData: newData });
     }
     const handleImageChange = (newData: any) => {
         const newCategory = [...categoryData];
         newCategory[newData.index]['image'] = newData.image;
         handleChange({ categoryData: newCategory });
+    }
+    const reloadDelete  = (data: any) => {
+        const newCategory = [...categoryData];
+        const updatedCategory = newCategory.filter(item => item.id !== data.updateCategory.id);
+        handleChange({ categoryData: updatedCategory });
     }
     // const handleDelete = async (id: string) => {
     //     console.log(id);
@@ -58,7 +65,6 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
     //     }
     // };
     const reloadData = (data: any) => {
-        console.log(data);
         const newCategory = [...categoryData, {
             description: data.createCategory.description,
             id: data.createCategory.id,
@@ -117,7 +123,7 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                     ))}
                 </div>
                 <div className="admin-form-container-create update">
-                    {data && data.categories.map((category, index) => (
+                    {categoryData && categoryData.map((category, index) => (
                         <div key={index} className='update__container'>
                             <div className='update__container__form'>
                                 <div className="admin-form-container-create__card">
@@ -160,7 +166,7 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                                     Actualizar
                                 </button>
                                 {/* <button className="delete" onClick={() => handleDelete(staffMember.id)}> */}
-                                <button>
+                                <button onClick={() => handleSaveForm(category.id, {disabled: true}, 'updateCategory', reloadDelete)}>
                                     Borrar
                                 </button>
                             </div>
