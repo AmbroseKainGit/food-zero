@@ -25,6 +25,8 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
         const { name, value } = e.target;
         const newData = [...categoryData];
         newData[index][name] = value;
+        console.log(newData);
+        
         handleChange({ categoryData: newData });
     }
     const handleImageChange = (newData: any) => {
@@ -32,33 +34,12 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
         newCategory[newData.index]['image'] = newData.image;
         handleChange({ categoryData: newCategory });
     }
-    // const handleDelete = async (id: string) => {
-    //     console.log(id);
-    //     try {
-    //         const { data } = await deleteMeat({
-    //             variables: {
-    //                 deleteMeatProcessId: id
-    //             }
-    //         });
-    //         const newMeat = [...meatData];
-    //         const updatedMeat = newMeat.filter(item => item.id !== id);
-    //         handleChange({ meatData: updatedMeat });
-    //         toast.success('Registro eliminado correctamente', {
-    //             position: "top-center",
-    //             autoClose: 1000,
-    //             hideProgressBar: false,
-    //             closeOnClick: true,
-    //             pauseOnHover: true,
-    //             draggable: true,
-    //             progress: undefined,
-    //             theme: "light",
-    //         });
-    //     } catch (error) {
-    //         console.error("Error updating params:", error);
-    //     }
-    // };
+    const reloadDelete  = (data: any) => {
+        const newCategory = [...categoryData];
+        const updatedCategory = newCategory.filter(item => item.id !== data.updateCategory.id);
+        handleChange({ categoryData: updatedCategory });
+    }
     const reloadData = (data: any) => {
-        console.log(data);
         const newCategory = [...categoryData, {
             description: data.createCategory.description,
             id: data.createCategory.id,
@@ -117,7 +98,7 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                     ))}
                 </div>
                 <div className="admin-form-container-create update">
-                    {data && data.categories.map((category, index) => (
+                    {categoryData && categoryData.map((category, index) => (
                         <div key={index} className='update__container'>
                             <div className='update__container__form'>
                                 <div className="admin-form-container-create__card">
@@ -158,9 +139,8 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                             <div className="update__container__button">
                                 <button onClick={() => handleSaveForm(category.id, category, 'updateCategory')}>                          
                                     Actualizar
-                                </button>
-                                {/* <button className="delete" onClick={() => handleDelete(staffMember.id)}> */}
-                                <button>
+                                </button>                               
+                                <button className="delete" onClick={() => handleSaveForm(category.id, {disabled: true}, 'updateCategory', reloadDelete)}>
                                     Borrar
                                 </button>
                             </div>

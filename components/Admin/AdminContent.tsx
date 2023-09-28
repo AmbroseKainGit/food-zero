@@ -135,7 +135,8 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
       const sendValues = { ...values } as any;
       delete sendValues?.staffData;
       delete sendValues?.meatData;
-      delete sendValues?.categoryData;    
+      delete sendValues?.categoryData;  
+      delete sendValues?.products;      
       const { data } = await mutationFunction({
         variables: {
           [variableName as string]: {
