@@ -130,11 +130,11 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
     },
     createproducts: {
       function: createProducts,
-      variableName: 'input'
+      variableName: 'createProductInput2'
     },
     updateproducts: {
       function: updateProducts,
-      variableName: 'updateCategoryInput2'
+      variableName: 'updateProductInput2'
     },
   };
 
@@ -151,6 +151,7 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
       delete sendValues?.meatData;
       delete sendValues?.categoryData;  
       delete sendValues?.products;      
+      delete sendValues?.productsData;      
       const { data } = await mutationFunction({
         variables: {
           [variableName as string]: {

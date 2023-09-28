@@ -4,7 +4,7 @@ import { TextareaHTMLAttributes, useState } from "react"
 export const useForm = <Type>(initialState: Type) => {
   const [values, setValues] = useState(initialState);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   }

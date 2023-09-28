@@ -166,8 +166,8 @@ export const createProductsMutation = gql`
       price
       priority
       categories {
-        id
         name
+        id
       }
     }
   }
