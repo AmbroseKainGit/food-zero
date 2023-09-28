@@ -37,7 +37,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 25rem;   
+    height: 25rem;
     padding: 2rem;
     background-color: $main-4;
     box-shadow: $primary-shadow;
@@ -60,6 +60,81 @@
       border: 1px solid $grey-soft;
       border-radius: 0.5rem;
       background-color: $main-4;
+    }
+  }
+}
+.data-admin-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  .admin-form-container-create {
+    display: flex;
+    padding: 3rem 2rem;
+    flex-direction: column;
+    border-radius: 2rem;
+    gap: 2rem;
+    background-color: $main-4;
+    &__card {
+      display: flex;
+      label {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: left;
+        font-family: var(--lato);
+        width: 10%;
+      }
+      input {
+        width: 70%;
+        height: 3rem;
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: left;
+        font-family: var(--lato);
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        border: 1px solid $grey-soft;
+        border-radius: 0.5rem;
+        background-color: $main-4;
+      }
+    }
+  }
+  .update {
+    overflow: auto;
+    height: 56vh;
+
+    &__container {
+      display: flex;
+      align-items: center;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid $grey-soft;
+      &__form {
+        width: 80%;
+      }
+      &__button {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;     
+        button {
+          height: 8rem;
+          width: 12rem;      
+          right: 0;
+          cursor: pointer;
+          font-size: 1.5rem;
+          font-weight: 700;
+          text-align: center;
+          font-family: var(--lato);
+          padding: 0 2rem;
+          border: 1px solid $grey-soft;
+          border-radius: 0.5rem;
+          background-color: $main-3;
+          margin: 0 auto;
+        }
+        .delete {
+          background-color: red;
+        }
+      }
     }
   }
 }

@@ -6,12 +6,17 @@ interface UploadFileProps {
   onChange: ({}: any) => void;
   url: string;
   name: string;
+  index?: number;
 }
 
-const UploadFile = ({ url, onChange, name }: UploadFileProps) => {
+const UploadFile = ({ url, onChange, name, index }: UploadFileProps) => {
   const inputFile = useRef<HTMLInputElement | null>(null);
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const url = await uploadImageUtil(e);
+    if (index !== undefined && index >= 0) {
+      onChange({ [name]: url, index })
+      return;
+    }
     onChange({ [name]: url });
   };
   return (

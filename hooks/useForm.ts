@@ -1,10 +1,10 @@
 "use client"
-import { useState } from "react"
+import { TextareaHTMLAttributes, useState } from "react"
 
 export const useForm = <Type>(initialState: Type) => {
   const [values, setValues] = useState(initialState);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   }

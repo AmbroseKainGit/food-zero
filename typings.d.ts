@@ -21,10 +21,19 @@ export interface CategoryQuery {
 }
 
 export interface StaffMember {
+  id: string
   name: string
   description: string
   role: string
   image: string
+  [key: string]: any
+}
+
+export interface handleFormProps {
+  id: string | undefined
+  values: any
+  mutationName: string
+  reloadData?: (data: any) => void
 }
 
 export interface StaffQuery {
@@ -36,6 +45,7 @@ export interface MeatProcess {
   description: string
   order: number
   image: string
+  [key: string]: any
 }
 
 export interface MeatProcessQuery {
@@ -169,4 +179,18 @@ export interface ISuscriberQuery {
 }
 export interface ISuscriber {
   email: string
+}
+export interface IStaffMember {
+  name: string
+  description: string
+  role: string
+  image: string
+  staffData: StaffMember[]
+}
+export interface IMeatProcess {
+  name: string
+  description: string
+  order: number
+  image: string
+  meatData: MeatProcess[]
 }
