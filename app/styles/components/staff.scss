@@ -59,6 +59,8 @@
     gap: 0.5rem;
   }
   img {
+    object-fit: cover;
+    object-position: center center;
     @media (max-width: 1440px) {
       height: 57rem;
       object-fit: cover;

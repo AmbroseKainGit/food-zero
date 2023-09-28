@@ -106,3 +106,31 @@ export const queryGetParams = gql`
     }
   }
 `
+
+
+export const queryPutReservation = gql`mutation CreateReservation($createReservationInput2: CreateReservationInput!) {
+  createReservation(input: $createReservationInput2) {
+    date
+    email
+    firstName
+    hour
+    id
+    numberOfPeople
+    phone
+    state
+    surname
+  }
+}`
+
+
+
+export const queryFoodSpecs = gql `
+query FoodSpecs {
+  foodSpecs {
+    id
+    image
+    title
+    content
+  }
+}
+`

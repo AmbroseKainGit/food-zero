@@ -7,6 +7,7 @@ enum MenuOptions {
   Option6 = "About",
   Option7 = "AdminStaff",
   Option8 = "AdminMeatProcess",
+  Option9 = "AdminCategories",
 }
 
 export default MenuOptions;

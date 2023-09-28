@@ -5,6 +5,7 @@ import { useAppDispatch } from "@/hooks/redux";
 import { changeVisibilityMenu } from "@/lib/redux";
 import { useAppSelector } from "@/hooks/redux";
 import { selectParams } from "@/lib/redux";
+import Link from "next/link";
 
 export const NavComponent = () => {
   const dispatch = useAppDispatch();
@@ -12,14 +13,14 @@ export const NavComponent = () => {
   return (
     <nav className="nav-header">
       <div className="nav-header__left">
-        <div className="nav-header__left__logo">
+        <Link className="nav-header__left__logo" href={'/'}>
           <Image
             src="/images/logo.svg"
             width={307}
             height={115}
             alt="Food zero logo"
           />
-        </div>
+        </Link>
         <div
           className="nav-header__left__button"
           onClick={() => dispatch(changeVisibilityMenu())}

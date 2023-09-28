@@ -7,6 +7,16 @@
     visibility: visible;
     opacity: 1; // When the component is visible, it should be fully opaque
     z-index: 3;
+    @media(max-width: 1440px){
+      gap: 50rem;
+    }
+    @media(max-width: 1000px){
+      flex-direction: column;
+      gap: 0;
+      justify-content: space-around;
+      padding-top: 6rem;
+      align-items: flex-start;
+    }
   }
   position: absolute;
   height: 100vh;
@@ -33,9 +43,15 @@
     font-size: 5rem;
     font-weight: normal;
     top: 6rem;
-    left: 7rem;
+   right: 10%;
     cursor: pointer;
     color: $common-white;
+    @media(max-width: 740px){
+      top: 3.5rem;
+      right: 5.8rem;
+      left: unset;
+    }
+
   }
   &__nav {
     display: flex;
@@ -43,6 +59,9 @@
     gap: 3rem;
     margin-left: 8rem;
     z-index: 2;
+    @media(max-width: 1000px){
+      margin-left: 0;
+    }
   }
 
   &__contact {
@@ -51,6 +70,9 @@
     z-index: 2;
     gap: 0.5rem;
     margin-top: 25rem;
+    @media(max-width: 1000px){
+      margin-top: 0;
+    }
     hr {
       border: none;
       border-top: 1px dotted;
@@ -99,7 +121,9 @@
     text-decoration: none;
     line-height: normal;
     color: $common-white;
-
+@media(max-width:740px){
+  font-size: 3rem;
+}
     &::before {
       content: '•';
       padding-right: 1.1rem;

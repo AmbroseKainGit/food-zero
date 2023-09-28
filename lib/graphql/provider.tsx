@@ -8,7 +8,14 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-const queries = ["GetAllMeatProcess", "Staff", "GetParams", "Categories", "CreateContact"];
+const queries = [
+  "GetAllMeatProcess",
+  "Staff",
+  "GetParams",
+  "Categories",
+  "CreateContact",
+  "CreateReservation"
+];
 
 const httpLink = createHttpLink({
   uri:
@@ -16,7 +23,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const operation  = _.operationName;
+  const operation = _.operationName;
   if (queries.includes(operation!)) {
     return { headers };
   }
@@ -33,9 +40,9 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  });
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
 
 interface IGraphQlProviderProps {
   children: React.ReactNode;
