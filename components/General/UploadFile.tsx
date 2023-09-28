@@ -14,24 +14,48 @@ const UploadFile = ({ url, onChange, name, index }: UploadFileProps) => {
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const url = await uploadImageUtil(e);
     if (index !== undefined && index >= 0) {
-      onChange({ [name]: url, index })
+      onChange({ [name]: url, index });
       return;
     }
     onChange({ [name]: url });
   };
   return (
     <>
-      <div className="upload-file" onClick={() => inputFile.current?.click()}>
-        <span>Upload file</span>
-      </div>
-      {url && url !== "" && (
-        <Image
+      {url === "" && (
+        <div
+          className="upload-file"
           onClick={() => inputFile.current?.click()}
-          src={url}
-          width={307}
-          height={115}
-          alt="Upload file image for "
-        />
+          style={{ cursor: "pointer", fontSize: 12 }}
+        >
+          <span>Upload file</span>
+        </div>
+      )}
+
+      {url && url !== "" && (
+        <div style={{ display: "flex", position: "relative" }}>
+          <Image
+            onClick={() => inputFile.current?.click()}
+            src={url}
+            style={{ cursor: "pointer" }}
+            width={307}
+            height={115}
+            alt="Upload file image for "
+          />
+          <span
+            onClick={() => inputFile.current?.click()}
+            style={{
+              position: "absolute",
+              cursor: "pointer",
+              color: "white",
+              fontSize: 12,
+              bottom: 0,
+              textAlign: "center",
+              left: "40%"
+            }}
+          >
+            Change File
+          </span>
+        </div>
       )}
 
       <input
