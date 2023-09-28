@@ -1,4 +1,7 @@
+'use client'
+import { useQuery } from "@apollo/client";
 import { InformationCard } from "./components/InformationCard";
+import { queryFoodSpecs } from "@/utils/querys";
 
 export interface FoodSpecs {
   id: number;
@@ -7,47 +10,19 @@ export interface FoodSpecs {
   content: string; 
 }
 
-const fetchData = async () => {
-  try {
-    const response = await fetch("https://food-zero-api.onrender.com/graphql", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // Add any other headers if required (e.g., authorization token)
-      },
-      body: JSON.stringify({
-        query: `
-          query FoodSpecs {
-            foodSpecs {
-              id
-              image
-              title
-              content
-            }
-          }
-        `
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const {data:{foodSpecs}} = await response.json();
-   return foodSpecs;
-  } catch (error) {
-    console.error("Error:", error);
-  }
-};
+interface QueryResult {
+  foodSpecs: FoodSpecs[]; // Assuming your GraphQL query returns an array of FoodSpecs
+}
 
 
-export const InformationSection = async() => {
-  const data:FoodSpecs[] = await fetchData();
+export const InformationSection = () => {
+  const { loading, error, data } = useQuery<QueryResult>(queryFoodSpecs);
+console.log(data);
 
   
   return (
     <div className="informattion-container-home">
-      {data?.map(({ image, title, content, id }) => {
+      {data?.foodSpecs.map(({ image, title, content, id }) => {
         return (
           <InformationCard
             key={id}

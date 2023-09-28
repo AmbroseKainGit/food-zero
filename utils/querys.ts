@@ -121,3 +121,16 @@ export const queryPutReservation = gql`mutation CreateReservation($createReserva
     surname
   }
 }`
+
+
+
+export const queryFoodSpecs = gql `
+query FoodSpecs {
+  foodSpecs {
+    id
+    image
+    title
+    content
+  }
+}
+`
