@@ -7,6 +7,7 @@ import { About } from "./About";
 import { AdminStaff } from "./AdminStaff";
 import { AdminMeatProcess } from "./AdminMeatProcess";
 import { AdminCategories } from "./AdminCategories";
+import { AdminProducts } from "./AdminProducts";
 import { ParamsQuery } from "@/typings";
 import { ApolloError, useMutation } from "@apollo/client";
 import {
@@ -16,7 +17,9 @@ import {
   createMeatProcessMutation,
   updateMeatProcessMutation,
   createCategoryMutation,
-  updateCategoryMutation
+  updateCategoryMutation,
+  createProductsMutation,
+  updateProductsMutation
 } from "../../utils/mutations";
 import { useAppDispatch } from "@/hooks/redux";
 import { fetchDataSuccess } from "@/lib/redux";
@@ -37,7 +40,8 @@ export const componentMap = {
   About,
   AdminStaff,
   AdminMeatProcess,
-  AdminCategories
+  AdminCategories,
+  AdminProducts
 };
 
 export const AdminContent = ({ isOpen, renderModule, params }: props) => {
@@ -50,6 +54,8 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
   const [updateMeatProcess] = useMutation(updateMeatProcessMutation);
   const [createCategory] = useMutation(createCategoryMutation);
   const [updateCategory] = useMutation(updateCategoryMutation);
+  const [createProducts] = useMutation(createProductsMutation);
+  const [updateProducts] = useMutation(updateProductsMutation);
   const handleSave = async (id: string | undefined, values: []) => {
     try {
       const { data } = await updateParams({
@@ -120,6 +126,14 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
     },
     updateCategory: {
       function: updateCategory,
+      variableName: 'updateCategoryInput2'
+    },
+    createproducts: {
+      function: createProducts,
+      variableName: 'input'
+    },
+    updateproducts: {
+      function: updateProducts,
       variableName: 'updateCategoryInput2'
     },
   };

@@ -16,6 +16,11 @@ export interface Product {
   image: string
   price: number
   priority: number
+  [key: string]: any
+}
+
+export interface CategoryProducts {
+  products: Product[]
 }
 
 export interface CategoryQuery {
@@ -200,7 +205,16 @@ export interface IMeatProcess {
 export interface ICategories {
   name: string
   description: string
-  // disabled: boolean
   image: string
   categoryData: Category[]
+}
+
+export interface IProducts {
+  name: string
+  description: string
+  image: string
+  price: string
+  priority: string
+  category: string
+  productsData: Product[]
 }

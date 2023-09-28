@@ -1,5 +1,5 @@
-import { CategoryQuery, ICategories } from '@/typings';
-import { queryMenu } from '@/utils/querys';
+import { CategoryProducts, IProducts } from '@/typings';
+import { queryProducts } from '@/utils/querys';
 import { useMutation, useQuery } from '@apollo/client';
 import React, { useEffect } from 'react'
 import UploadFile from '../General/UploadFile';
@@ -7,56 +7,61 @@ import { useForm } from '@/hooks/useForm';
 interface props {
     handleSaveForm: (id: string | undefined, values: any, mutationName: string, reloadData?: (data: any) => void) => Promise<void>;
 }
-export const AdminCategories = ({ handleSaveForm }: props) => {
-    const { loading, error, data } = useQuery<CategoryQuery>(queryMenu);
-    const { handleInputChange, values, handleChange } = useForm<ICategories>({
+export const AdminProducts = ({ handleSaveForm }: props) => {
+    const { loading, error, data } = useQuery<CategoryProducts>(queryProducts);
+    const { handleInputChange, values, handleChange } = useForm<IProducts>({
         name: "",
         description: "",
         image: "",
-        categoryData: data?.categories || []
+        priority: "",
+        price: "",
+        category: "",
+        productsData: data?.products || []
     });
-    const { categoryData } = values;
+    const { productsData } = values;
     const images = [
         "image"
     ];
-    const handleChangeCategories = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>, index: number) => {
+    const handleChangeProducts = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLSelectElement>, index: number) => {
         const { name, value } = e.target;
-        const newData = [...categoryData];
+        const newData = [...productsData];
         newData[index][name] = value;
-        console.log(newData);
-        
-        handleChange({ categoryData: newData });
+        handleChange({ productsData: newData });
     }
     const handleImageChange = (newData: any) => {
-        const newCategory = [...categoryData];
-        newCategory[newData.index]['image'] = newData.image;
-        handleChange({ categoryData: newCategory });
+        const newProducts = [...productsData];
+        newProducts[newData.index]['image'] = newData.image;
+        handleChange({ productsData: newProducts });
     }
     const reloadDelete  = (data: any) => {
-        const newCategory = [...categoryData];
-        const updatedCategory = newCategory.filter(item => item.id !== data.updateCategory.id);
-        handleChange({ categoryData: updatedCategory });
+        const newProducts = [...productsData];
+        const updatedProducts = newProducts.filter(item => item.id !== data.updateCategory.id);
+        handleChange({ productsData: updatedProducts });
     }
     const reloadData = (data: any) => {
-        const newCategory = [...categoryData, {
-            description: data.createCategory.description,
-            id: data.createCategory.id,
-            image: data.createCategory.image,
-            name: data.createCategory.name,
-            disabled: data.createCategory.disabled,
-            products: data.createCategory.products
+        const newProducts = [...productsData, {
+            description: data.createProduct.description,
+            id: data.createProduct.id,
+            image: data.createProduct.image,
+            name: data.createProduct.name,
+            disabled: data.createProduct.disabled,
+            products: data.createProduct.products,
+            priority: data.createProduct.priority,
+            price: data.createProduct.price,
         }];
-        handleChange({ categoryData: newCategory, name: "", description: "", image: "" });     
+        handleChange({ productsData: newProducts, name: "", description: "", image: "", priority: "", price: "", category: "" });     
     }
     useEffect(() => {
         handleChange({
-            categoryData: data?.categories.map(data => ({
+            productsData: data?.products.map(data => ({
                 id: data.id,
                 name: data.name,
                 description: data.description,
                 image: data.image,
                 disabled: data.disabled,
-                products: [...data.products]
+                category: data.category,
+                priority: data.priority,
+                price: data.price,
             })) || []
         });
     }, [data]);
@@ -64,7 +69,7 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
     return (
         <>
             <div className="admin-general-header">
-                <h1 className="admin-general-header__title">Categories</h1>
+                <h1 className="admin-general-header__title">Products</h1>
                 <button onClick={() => handleSaveForm(undefined, values, 'createCategory', reloadData)}>
                     Crear
                 </button>
@@ -72,11 +77,26 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
             <div className='data-admin-container'>
                 <div className="admin-form-container-create">
                     {Object.entries(values).map(([key, value]) => (
-                        key !== 'categoryData' &&
+                        key !== 'productsData' &&
                         <div key={key} className="admin-form-container-create__card">
                             <label htmlFor={key}>
                                 {key.charAt(0).toUpperCase() + key.slice(1)}
                             </label>
+                            {key === 'category' && 
+                                        <select
+                                        name={key}
+                                        value={value}
+                                        onChange={handleInputChange}
+                                      >
+                                        <option value=""></option>
+                                        {quantityOptions.map((option) => (
+                                          <option key={option.value} value={option.value}>
+                                            {option.label}
+                                          </option>
+                                        ))}
+                                      </select>
+                            }
+
                             {images.includes(key) ? (
                                 <UploadFile
                                     url={value}
@@ -96,7 +116,7 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                     ))}
                 </div>
                 <div className="admin-form-container-create update">
-                    {categoryData && categoryData.map((category, index) => (
+                    {productsData && productsData.map((products, index) => (
                         <div key={index} className='update__container'>
                             <div className='update__container__form'>
                                 <div className="admin-form-container-create__card">
@@ -106,8 +126,8 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                                     <input
                                         type="text"
                                         name="name"
-                                        value={category.name}
-                                        onChange={(e) => handleChangeCategories(e, index)}
+                                        value={products.name}
+                                        onChange={(e) => handleChangeProducts(e, index)}
                                     />
                                 </div>
                                 <div className="admin-form-container-create__card">
@@ -117,8 +137,8 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                                     <input
                                         type="text"
                                         name="description"
-                                        value={category.description}
-                                        onChange={(e) => handleChangeCategories(e, index)}
+                                        value={products.description}
+                                        onChange={(e) => handleChangeProducts(e, index)}
                                     />
                                 </div>
                                 <div className="admin-form-container-create__card">
@@ -126,7 +146,7 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                                         Image
                                     </label>
                                     <UploadFile
-                                        url={category.image}
+                                        url={products.image}
                                         name="image"
                                         key="image"
                                         index={index}
@@ -135,10 +155,10 @@ export const AdminCategories = ({ handleSaveForm }: props) => {
                                 </div>
                             </div>
                             <div className="update__container__button">
-                                <button onClick={() => handleSaveForm(category.id, category, 'updateCategory')}>                          
+                                <button onClick={() => handleSaveForm(products.id, products, 'updateCategory')}>                          
                                     Actualizar
                                 </button>                               
-                                <button className="delete" onClick={() => handleSaveForm(category.id, {disabled: true}, 'updateCategory', reloadDelete)}>
+                                <button className="delete" onClick={() => handleSaveForm(products.id, {disabled: true}, 'updateCategory', reloadDelete)}>
                                     Borrar
                                 </button>
                             </div>

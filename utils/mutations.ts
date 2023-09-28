@@ -155,3 +155,37 @@ export const updateCategoryMutation = gql`
     }
   }
 `
+export const createProductsMutation = gql`
+  mutation CreateProduct($createProductInput2: CreateProductInput!) {
+    createProduct(input: $createProductInput2) {
+      description
+      disabled
+      id
+      image
+      name
+      price
+      priority
+      categories {
+        id
+        name
+      }
+    }
+  }
+`
+export const updateProductsMutation = gql`
+mutation UpdateProduct($updateProductInput2: UpdateProductInput!) {
+  updateProduct(input: $updateProductInput2) {
+    description
+    disabled
+    id
+    image
+    name
+    price
+    priority
+    categories {
+      id
+      name
+    }
+  }
+}
+`
