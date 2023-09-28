@@ -64,3 +64,72 @@ export const createContactMutation = gql`
     }
   }
 `
+export const createStaffMutation = gql`
+  mutation CreateStaff($createStaffInput2: CreateStaffInput!) {
+    createStaff(input: $createStaffInput2) {
+      description
+      disabled
+      id
+      image
+      name
+      role
+    }
+  }
+`
+export const updateStaffMutation = gql`
+  mutation UpdateStaff($updateStaffInput2: UpdateStaffInput!) {
+    updateStaff(input: $updateStaffInput2) {
+      description
+      disabled
+      id
+      image
+      name
+      role
+    }
+  }
+`
+export const deleteStaffMutation = gql`
+  mutation DeleteStaff($deleteStaffId: ID!) {
+    deleteStaff(id: $deleteStaffId) {
+      description
+      disabled
+      id
+      image
+      name
+      role
+    }
+  }
+`
+export const createMeatProcessMutation = gql`
+  mutation CreateMeatProcess($createMeatProcessInput2: CreateMeatProcessInput!) {
+    createMeatProcess(input: $createMeatProcessInput2) {
+      description
+      id
+      image
+      name
+      order
+    }
+  }
+`
+export const deleteMeatProcessMutation = gql`
+  mutation DeleteMeatProcess($deleteMeatProcessId: ID!) {
+    deleteMeatProcess(id: $deleteMeatProcessId) {
+      description
+      id
+      image
+      name
+      order
+    }
+  }
+`
+export const updateMeatProcessMutation = gql`
+mutation UpdateMeatProcess($updateMeatProcessInput2: UpdateMeatProcessInput!) {
+  updateMeatProcess(input: $updateMeatProcessInput2) {
+    id
+    description
+    image
+    name
+    order
+  }
+}
+`
