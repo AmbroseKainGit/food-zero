@@ -38,7 +38,7 @@ export const Testimonials = () => {
   return (
     <div className="testimonials-inner-container" ref={ref}>
       <h3>{params?.getParams.titleCommentsHome}</h3>
-      {ref.current && (
+      {(params && ref.current) && (
         <Carousel
           show={carouselShow}
           slide={carouselSlide}
