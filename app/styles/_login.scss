@@ -4,6 +4,10 @@
   height: 100vh;
   background-position: center;
   background-size: cover;
+  @media (max-width: 1000px) {
+   height: auto;
+   padding-bottom: 30px;
+  }
 
   .inner-wrapper-container {
     @include inner_container($gap: 0, $flex-directiom: row);
@@ -12,6 +16,18 @@
     .text-information-container {
       width: 50%;
       color: #f9dcc5;
+      @media (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 7px;
+        margin-bottom: 30px;
+      }
+      @media (max-width: 740px) {
+       padding-top: 30px;
+       padding-bottom: 30px;
+       margin-bottom: 0px;
+      }
       h1 {
         font-size: 7.8rem;
         font-style: italic;
@@ -23,10 +39,13 @@
       h2 {
         text-transform: uppercase;
         font-family: "Gt Walsheim Condensed Black", sans-serif;
-        font-size: 13rem;
+        font-size: 10rem;
         font-weight: 900;
         line-height: 0.8em;
         margin-bottom: 16px;
+        @media(max-width:740px){
+          font-size: 6rem;
+         }
       }
 
       p {
@@ -38,6 +57,12 @@
 
       img {
         margin-top: 7rem;
+        @media(max-width:1000px){
+         align-self: flex-end;
+        }
+        @media(max-width:740px){
+         width: 60%;
+        }
       }
     }
     .login-main-container {
@@ -45,6 +70,9 @@
       display: flex;
       justify-content: center;
       width: 50%;
+      @media(max-width:1440px){
+        width: 100%;
+      }
       .form-wrapper {
         padding: 9rem;
         background-color: #fceadb;
@@ -105,6 +133,9 @@
           font-size: 1.25em;
           font-weight: 900;
           line-height: 1em;
+          @media(max-width:1000px){
+            line-height: 120%;
+          }
         }
       }
     }
@@ -114,5 +145,13 @@
 @media (max-width: 1440px) {
   .wrapper .inner-wrapper-container {
     max-width: 144rem;
+  }
+  @media (max-width: 1000px) {
+    .wrapper .inner-wrapper-container {
+      flex-direction: column;
+      /* height: auto; */
+      justify-content: space-around;
+      align-items: center;
+    }
   }
 }
