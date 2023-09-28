@@ -123,13 +123,69 @@ export const deleteMeatProcessMutation = gql`
   }
 `
 export const updateMeatProcessMutation = gql`
-mutation UpdateMeatProcess($updateMeatProcessInput2: UpdateMeatProcessInput!) {
-  updateMeatProcess(input: $updateMeatProcessInput2) {
-    id
+  mutation UpdateMeatProcess($updateMeatProcessInput2: UpdateMeatProcessInput!) {
+    updateMeatProcess(input: $updateMeatProcessInput2) {
+      id
+      description
+      image
+      name
+      order
+    }
+  }
+`
+export const createCategoryMutation = gql`
+  mutation CreateCategory($input: CategoryInput!) {
+    createCategory(input: $input) {
+      description
+      disabled
+      id
+      image
+      name
+    }
+  }
+`
+export const updateCategoryMutation = gql`
+  mutation UpdateCategory($updateCategoryInput2: UpdateCategoryInput!) {
+    updateCategory(input: $updateCategoryInput2) {
+      description
+      disabled
+      id
+      image
+      name
+    }
+  }
+`
+export const createProductsMutation = gql`
+  mutation CreateProduct($createProductInput2: CreateProductInput!) {
+    createProduct(input: $createProductInput2) {
+      description
+      disabled
+      id
+      image
+      name
+      price
+      priority
+      categories {
+        name
+        id
+      }
+    }
+  }
+`
+export const updateProductsMutation = gql`
+mutation UpdateProduct($updateProductInput2: UpdateProductInput!) {
+  updateProduct(input: $updateProductInput2) {
     description
+    disabled
+    id
     image
     name
-    order
+    price
+    priority
+    categories {
+      id
+      name
+    }
   }
 }
 `

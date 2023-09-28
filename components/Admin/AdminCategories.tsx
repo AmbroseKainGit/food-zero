@@ -1,98 +1,78 @@
-import React, { use, useEffect } from 'react'
-import { useQuery, useMutation } from '@apollo/client';
-import { IMeatProcess, MeatProcessQuery } from '@/typings';
-import { queryGetAllMeatProcess } from '@/utils/querys';
-import { useForm } from '@/hooks/useForm';
+import { CategoryQuery, ICategories } from '@/typings';
+import { queryMenu } from '@/utils/querys';
+import { useMutation, useQuery } from '@apollo/client';
+import React, { useEffect } from 'react'
 import UploadFile from '../General/UploadFile';
-import { deleteMeatProcessMutation } from '@/utils/mutations';
-import { toast } from 'react-toastify';
-
+import { useForm } from '@/hooks/useForm';
 interface props {
     handleSaveForm: (id: string | undefined, values: any, mutationName: string, reloadData?: (data: any) => void) => Promise<void>;
 }
-
-export const AdminMeatProcess = ({ handleSaveForm }: props) => {
-    const { loading, error, data } = useQuery<MeatProcessQuery>(queryGetAllMeatProcess);   
-    const [deleteMeat] = useMutation(deleteMeatProcessMutation);
-    const { handleInputChange, values, handleChange } = useForm<IMeatProcess>({
+export const AdminCategories = ({ handleSaveForm }: props) => {
+    const { loading, error, data } = useQuery<CategoryQuery>(queryMenu);
+    const { handleInputChange, values, handleChange } = useForm<ICategories>({
         name: "",
         description: "",
-        order: 0,
         image: "",
-        meatData: data?.getAllMeatProcess || []
+        categoryData: data?.categories || []
     });
-    const { meatData } = values;
+    const { categoryData } = values;
     const images = [
         "image"
     ];
-    const handleChangeMeatProcess = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>, index: number) => {
+    const handleChangeCategories = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>, index: number) => {
         const { name, value } = e.target;
-        const newData = [...meatData];
+        const newData = [...categoryData];
         newData[index][name] = value;
-        handleChange({ meatData: newData });
+        console.log(newData);
+        
+        handleChange({ categoryData: newData });
     }
     const handleImageChange = (newData: any) => {
-        const newMeat = [...meatData];
-        newMeat[newData.index]['image'] = newData.image;
-        handleChange({ meatData: newMeat });
+        const newCategory = [...categoryData];
+        newCategory[newData.index]['image'] = newData.image;
+        handleChange({ categoryData: newCategory });
     }
-    const handleDelete = async (id: string) => {  
-        try {
-            const { data } = await deleteMeat({
-                variables: {
-                    deleteMeatProcessId: id
-                }
-            });
-            const newMeat = [...meatData];
-            const updatedMeat = newMeat.filter(item => item.id !== id);
-            handleChange({ meatData: updatedMeat });
-            toast.success('Registro eliminado correctamente', {
-                position: "top-center",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-        } catch (error) {
-            console.error("Error updating params:", error);
-        }
-    };
-    const reloadData = (data: any) => {   
-        const newMeat = [...meatData, {
-            description: data.createMeatProcess.description,
-            id: data.createMeatProcess.id,
-            image: data.createMeatProcess.image,
-            name: data.createMeatProcess.name,
-            order: data.createMeatProcess.order
+    const reloadDelete  = (data: any) => {
+        const newCategory = [...categoryData];
+        const updatedCategory = newCategory.filter(item => item.id !== data.updateCategory.id);
+        handleChange({ categoryData: updatedCategory });
+    }
+    const reloadData = (data: any) => {
+        const newCategory = [...categoryData, {
+            description: data.createCategory.description,
+            id: data.createCategory.id,
+            image: data.createCategory.image,
+            name: data.createCategory.name,
+            disabled: data.createCategory.disabled,
+            products: data.createCategory.products
         }];
-        handleChange({ meatData: newMeat, name: "", description: "", order: 0, image: "" });
+        handleChange({ categoryData: newCategory, name: "", description: "", image: "" });     
     }
     useEffect(() => {
         handleChange({
-            meatData: data?.getAllMeatProcess.map(data => ({
+            categoryData: data?.categories.map(data => ({
                 id: data.id,
                 name: data.name,
                 description: data.description,
-                order: data.order,
-                image: data.image
+                image: data.image,
+                disabled: data.disabled,
+                products: [...data.products]
             })) || []
         });
     }, [data]);
+
     return (
         <>
             <div className="admin-general-header">
-                <h1 className="admin-general-header__title">Proceso</h1>
-                <button onClick={() => handleSaveForm(undefined, { ...values, order: parseInt(values.order.toString()) }, 'createMeatProcess', reloadData)}>
+                <h1 className="admin-general-header__title">Categories</h1>
+                <button onClick={() => handleSaveForm(undefined, values, 'createCategory', reloadData)}>
                     Crear
                 </button>
             </div>
             <div className='data-admin-container'>
                 <div className="admin-form-container-create">
                     {Object.entries(values).map(([key, value]) => (
-                        key !== 'meatData' &&
+                        key !== 'categoryData' &&
                         <div key={key} className="admin-form-container-create__card">
                             <label htmlFor={key}>
                                 {key.charAt(0).toUpperCase() + key.slice(1)}
@@ -116,7 +96,7 @@ export const AdminMeatProcess = ({ handleSaveForm }: props) => {
                     ))}
                 </div>
                 <div className="admin-form-container-create update">
-                    {meatData && meatData.map((meat, index) => (
+                    {categoryData && categoryData.map((category, index) => (
                         <div key={index} className='update__container'>
                             <div className='update__container__form'>
                                 <div className="admin-form-container-create__card">
@@ -126,8 +106,8 @@ export const AdminMeatProcess = ({ handleSaveForm }: props) => {
                                     <input
                                         type="text"
                                         name="name"
-                                        value={meat.name}
-                                        onChange={(e) => handleChangeMeatProcess(e, index)}
+                                        value={category.name}
+                                        onChange={(e) => handleChangeCategories(e, index)}
                                     />
                                 </div>
                                 <div className="admin-form-container-create__card">
@@ -137,19 +117,8 @@ export const AdminMeatProcess = ({ handleSaveForm }: props) => {
                                     <input
                                         type="text"
                                         name="description"
-                                        value={meat.description}
-                                        onChange={(e) => handleChangeMeatProcess(e, index)}
-                                    />
-                                </div>
-                                <div className="admin-form-container-create__card">
-                                    <label htmlFor="order">
-                                        Order
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="order"
-                                        value={meat.order}
-                                        onChange={(e) => handleChangeMeatProcess(e, index)}
+                                        value={category.description}
+                                        onChange={(e) => handleChangeCategories(e, index)}
                                     />
                                 </div>
                                 <div className="admin-form-container-create__card">
@@ -157,7 +126,7 @@ export const AdminMeatProcess = ({ handleSaveForm }: props) => {
                                         Image
                                     </label>
                                     <UploadFile
-                                        url={meat.image}
+                                        url={category.image}
                                         name="image"
                                         key="image"
                                         index={index}
@@ -166,10 +135,10 @@ export const AdminMeatProcess = ({ handleSaveForm }: props) => {
                                 </div>
                             </div>
                             <div className="update__container__button">
-                                <button onClick={() => handleSaveForm(meat.id, meat, 'updateMeatProcess')}>
+                                <button onClick={() => handleSaveForm(category.id, category, 'updateCategory')}>                          
                                     Actualizar
-                                </button>
-                                <button className="delete" onClick={() => handleDelete(meat.id)}>
+                                </button>                               
+                                <button className="delete" onClick={() => handleSaveForm(category.id, {disabled: true}, 'updateCategory', reloadDelete)}>
                                     Borrar
                                 </button>
                             </div>
@@ -178,5 +147,5 @@ export const AdminMeatProcess = ({ handleSaveForm }: props) => {
                 </div>
             </div>
         </>
-    );
-};
+    )
+}

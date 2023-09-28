@@ -36,7 +36,7 @@ export default function Menu() {
       <VideoBanner videoId={params?.getParams.aboutBannerVideoId || ''} title={params?.getParams.aboutBannerVideoTitle || ''} description={params?.getParams.aboutBannerVideoParagraph || ''} />
       {dataMeatProcess && dataMeatProcess.getAllMeatProcess.map((meatProcess, index) => {
         return (
-          <Process data={meatProcess} key={index} loopIndex={index} processTitle="Sophisticated Process" />
+          <Process data={meatProcess} key={index} loopIndex={index} processTitle="Nuestro sofisticado proceso" />
         )
       })}
       <div className="calendar-container-main">

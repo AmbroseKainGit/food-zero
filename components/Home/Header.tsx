@@ -1,16 +1,23 @@
+"use client";
+import { useAppSelector } from "@/hooks/redux";
+import { selectParams } from "@/lib/redux";
 import Image from "next/image";
 export const Header = () => {
+  const { data: params } = useAppSelector(selectParams);
   return (
     <header className="header-container">
       <div className="hero-header-title">
-        <h1>Healthy Eating is important part of lifestyle</h1>
-        <p>Discovering Nutritional Delights: A Path to Wellness</p>
+        <h1>{params?.getParams.homeSection1Title}</h1>
+        <p>{params?.getParams.homeSection1Subtitle}</p>
         <div className="hero-header-scroll">
           <p>Scroll ---------------------------</p>
         </div>
       </div>
       <Image
-        src="/static/imagen-plato-carne.webp"
+        src={
+          params?.getParams.homeSection1Image1 ||
+          "/static/imagen-plato-carne.webp"
+        }
         width={792}
         height={931}
         alt="Plate with a Piece of Meat"
@@ -36,16 +43,19 @@ export const Header = () => {
       <div className="header-inner-section">
         <div className="first-inner-section">
           <Image
-            src="/static/oyster-cream.webp"
+            src={
+              params?.getParams.homeSection1Image2 ||
+              "/static/oyster-cream.webp"
+            }
             width={792}
             height={560}
             alt="Oyster Cream"
           />
-          <h3>Start to plan your diet today</h3>
-          <p>Good nourishment leads to good wellness.</p>
+          <h3>{params?.getParams.homeSection1ImagesText1}</h3>
+          <p>{params?.getParams.homeSection1Paragraph1}</p>
         </div>
         <div className="second-inner-section">
-          <p>Salt and pepper, the culinary duo that adds the perfect flavor to every dish.</p>
+          <p>{params?.getParams.homeSection1Paragraph2}</p>
           <Image
             src="/static/pepper-and-salt.webp"
             width={508}

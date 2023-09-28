@@ -3,13 +3,15 @@ import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import data from "@/data/fakeDataComments.json";
 import { TestimonialCard } from "./components/TestimonialCard";
 import { Carousel } from "@trendyol-js/react-carousel";
+import { selectParams } from "@/lib/redux";
+import { useAppSelector } from "@/hooks/redux";
 
 export const Testimonials = () => {
   const [carouselShow, setCarouselShow] = useState(0);
   const [carouselSlide, setCarouselSlide] = useState(0);
   const [width, setWidth] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
-
+  const { data: params } = useAppSelector(selectParams);
   useLayoutEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
       const newWidth = entries[0]?.contentRect.width;
@@ -35,7 +37,7 @@ export const Testimonials = () => {
 
   return (
     <div className="testimonials-inner-container" ref={ref}>
-      <h3>Rate & Relate: Share Your Restaurant Experience!</h3>
+      <h3>{params?.getParams.titleCommentsHome}</h3>
       {ref.current && (
         <Carousel
           show={carouselShow}
