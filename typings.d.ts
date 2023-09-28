@@ -1,8 +1,10 @@
 export interface Category {
+  id: string
   name: string
   description: string
   disabled: boolean
   image: string
+  [key: string]: any
   products: Product[]
 }
 
@@ -193,4 +195,12 @@ export interface IMeatProcess {
   order: number
   image: string
   meatData: MeatProcess[]
+}
+
+export interface ICategories {
+  name: string
+  description: string
+  // disabled: boolean
+  image: string
+  categoryData: Category[]
 }

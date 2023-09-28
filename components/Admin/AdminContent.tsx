@@ -6,18 +6,22 @@ import { Contact } from "./Contact";
 import { About } from "./About";
 import { AdminStaff } from "./AdminStaff";
 import { AdminMeatProcess } from "./AdminMeatProcess";
+import { AdminCategories } from "./AdminCategories";
 import { ParamsQuery } from "@/typings";
-import { useMutation } from "@apollo/client";
+import { ApolloError, useMutation } from "@apollo/client";
 import {
   updateParamsMutation,
   createStaffMutation,
   updateStaffMutation,
   createMeatProcessMutation,
-  updateMeatProcessMutation
+  updateMeatProcessMutation,
+  createCategoryMutation,
+  updateCategoryMutation
 } from "../../utils/mutations";
 import { useAppDispatch } from "@/hooks/redux";
 import { fetchDataSuccess } from "@/lib/redux";
 import { toast } from 'react-toastify';
+import { log } from "console";
 
 interface props {
   isOpen: boolean;
@@ -32,7 +36,8 @@ export const componentMap = {
   Contact,
   About,
   AdminStaff,
-  AdminMeatProcess
+  AdminMeatProcess,
+  AdminCategories
 };
 
 export const AdminContent = ({ isOpen, renderModule, params }: props) => {
@@ -43,6 +48,8 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
   const [updateStaff] = useMutation(updateStaffMutation);
   const [createMeatProcess] = useMutation(createMeatProcessMutation);
   const [updateMeatProcess] = useMutation(updateMeatProcessMutation);
+  const [createCategory] = useMutation(createCategoryMutation);
+  const [updateCategory] = useMutation(updateCategoryMutation);
   const handleSave = async (id: string | undefined, values: []) => {
     try {
       const { data } = await updateParams({
@@ -64,8 +71,29 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
           error: null
         })
       );
+      toast.success('Guardado correctamte', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (error) {
-      console.error("Error updating params:", error);
+      const e = error as ApolloError;
+      console.log(e.message);
+      toast.warning(e.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -86,6 +114,14 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
       function: updateMeatProcess,
       variableName: 'updateMeatProcessInput2'
     },
+    createCategory: {
+      function: createCategory,
+      variableName: 'input'
+    },
+    updateCategory: {
+      function: updateCategory,
+      variableName: 'updateCategoryInput2'
+    },
   };
 
   const handleSaveForm = async (id: string | undefined, values: any, mutationName: string, reloadData?: (data: any) => void) => {
@@ -99,6 +135,7 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
       const sendValues = { ...values } as any;
       delete sendValues?.staffData;
       delete sendValues?.meatData;
+      delete sendValues?.categoryData;    
       const { data } = await mutationFunction({
         variables: {
           [variableName as string]: {
@@ -110,7 +147,7 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
       if (reloadData) {
         reloadData(data);
       }
-      toast.success('Creado correctamente', {
+      toast.success('Guardado correctamte', {
         position: "top-center",
         autoClose: 1000,
         hideProgressBar: false,
@@ -119,9 +156,20 @@ export const AdminContent = ({ isOpen, renderModule, params }: props) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-    });
+      });
     } catch (error) {
-      console.error("Error updating params:", error);
+      const e = error as ApolloError;
+      console.log(e.message);
+      toast.warning(e.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   return (
